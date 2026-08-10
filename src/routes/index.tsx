@@ -123,32 +123,25 @@ const included = [
 
 const bonuses = [
   {
-    icon: CircuitBoard,
+    icon: ShieldCheck,
     tag: "Bônus 01",
-    title: "Aulas de Análise de Diagramas",
-    value: "R$ 197,00",
-    text: "Videoaulas onde o autor destrincha, contato por contato, as chaves de partida que estão no livro.",
+    title: "NR-10 Comentada",
+    value: "R$ 37,00",
+    text: "A norma explicada em linguagem de campo para você trabalhar protegido.",
+  },
+  {
+    icon: CircuitBoard,
+    tag: "Bônus 02",
+    title: "Videoaulas de Diagramas",
+    value: "R$ 47,00",
+    text: "Videoaulas onde destrinchamos contato por contato as chaves de partida.",
   },
   {
     icon: Cpu,
-    tag: "Bônus 02",
-    title: "Simuladores de Circuitos",
-    value: "R$ 147,00",
-    text: "Programas para montar, testar e errar à vontade no computador antes de encostar no painel.",
-  },
-  {
-    icon: ShieldCheck,
     tag: "Bônus 03",
-    title: "NR-10 Comentada",
-    value: "R$ 97,00",
-    text: "A norma explicada artigo por artigo, em linguagem de campo, para você trabalhar protegido.",
-  },
-  {
-    icon: FileText,
-    tag: "Bônus 04",
-    title: "Caderno de Exercícios",
-    value: "R$ 67,00",
-    text: "Lista prática para acompanhar as aulas e fixar dimensionamentos e leitura de diagramas.",
+    title: "Simuladores de Circuitos",
+    value: "R$ 47,00",
+    text: "Programas para testar circuitos no computador antes de ir para o painel.",
   },
 ];
 
