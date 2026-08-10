@@ -713,14 +713,13 @@ function Index() {
       </section>
 
       <footer className="border-t border-border bg-card py-12 text-center text-sm text-muted-foreground">
-        <div className="mx-auto max-w-4xl px-5">
-          <p className="font-semibold text-foreground">Sandro Zander Soares Nogueira</p>
-          <p className="mt-2">CNPJ: 34.308.810/0001-20</p>
-          <p className="mt-4">
+        <div className="mx-auto max-w-4xl px-5 leading-relaxed">
+          <p>Copyright © 2026</p>
+          <p>Academia do Eletricista</p>
+          <p>Instituto Brasileiro de Qualificação Profissional Ltda - ME</p>
+          <p>CNPJ: 10.984.548/0001-77</p>
+          <p className="mt-6 text-xs opacity-70">
             Este produto não garante a obtenção de resultados. Qualquer referência ao desempenho de uma estratégia não deve ser interpretada como uma garantia de resultados.
-          </p>
-          <p className="mt-8 opacity-75">
-            © 2026 Manual Comandos Elétricos. Todos os direitos reservados.
           </p>
         </div>
       </footer>
