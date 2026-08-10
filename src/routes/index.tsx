@@ -714,37 +714,47 @@ function Index() {
         </div>
       </section>
 
-      {/* -------------------------------- AUTOR ----------------------------- */}
+      {/* -------------------------------- AUTORIDADE ------------------------ */}
       <section className="mx-auto max-w-6xl px-5 py-20">
         <div className="grid items-center gap-12 lg:grid-cols-[0.8fr_1fr]">
-          <img
-            src={authorPhoto.url}
-            alt="Sandro Zander Soares Nogueira, autor do Manual Comandos Elétricos"
-            width={470}
-            height={569}
-            loading="lazy"
-            className="w-full rounded-3xl border border-border bg-card object-cover shadow-[var(--shadow-lift)]"
-          />
+          <div className="relative">
+            <img
+              src={authorPhoto.url}
+              alt="Sandro Zander Soares Nogueira, autor do Manual Comandos Elétricos"
+              width={470}
+              height={569}
+              loading="lazy"
+              className="w-full rounded-3xl border border-border bg-card object-cover shadow-[var(--shadow-lift)]"
+            />
+            <div className="absolute -bottom-6 -right-6 hidden rounded-2xl bg-accent p-6 text-white shadow-xl lg:block">
+              <p className="font-display text-3xl font-bold">20+</p>
+              <p className="text-xs font-bold uppercase tracking-wider">Anos de experiência</p>
+            </div>
+          </div>
           <div>
-            <SectionTag>Quem escreveu</SectionTag>
+            <SectionTag>Autoridade</SectionTag>
             <h2 className="mt-5 text-3xl font-bold sm:text-4xl">
-              Vinte anos ensinando eletricidade industrial em sala de aula.
+              Sandro Zander: Vinte anos ensinando eletricidade industrial.
             </h2>
-            <div className="mt-5 space-y-4 text-lg text-muted-foreground">
+            <div className="mt-6 space-y-4 text-lg text-muted-foreground">
               <p>
-                Professor de eletricidade industrial há duas décadas no SENAI-RJ e na FAETEC-RJ,
-                em cursos de Instalações Elétricas, Manutenção Industrial, Comandos Elétricos,
-                Automação e no Técnico em Eletrotécnica.
+                Professor de eletricidade industrial há 20 anos, atuando no{" "}
+                <strong className="text-foreground">SENAI-RJ</strong> e na{" "}
+                <strong className="text-foreground">FAETEC-RJ</strong> nos cursos de Instalações
+                Elétricas, Manutenção Industrial, Comandos Elétricos, Automação Industrial e no curso
+                Técnico de Eletrotécnica.
+              </p>
+              <p>
+                Experiência prática consolidada em comandos elétricos, manutenção industrial e
+                automação, trazendo para o papel a vivência real do laboratório e do campo.
               </p>
               <p>
                 Fundador da Academia do Eletricista e criador do Método Comandos Elétricos Expert,
-                por onde já passaram centenas de profissionais que hoje montam, regulam e corrigem
-                painéis com autonomia.
+                unindo a didática de sala de aula com a necessidade prática do profissional.
               </p>
-              <p className="border-l-2 border-accent pl-5 text-foreground">
-                “Escrevi este material do jeito que eu explico no laboratório: mostrando o
-                caminho da corrente, o motivo de cada dispositivo e o que fazer quando a máquina
-                não parte.”
+              <p className="border-l-2 border-accent pl-5 text-foreground italic">
+                “Escrevi este manual do jeito que eu explico no laboratório: mostrando o caminho da
+                corrente, o motivo de cada dispositivo e o que fazer quando a máquina não parte.”
               </p>
             </div>
           </div>
