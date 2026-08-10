@@ -417,7 +417,7 @@ function Index() {
             ))}
           </div>
           <div className="mt-10">
-            <CTA>Quero dominar comandos elétricos</CTA>
+            <CTA>QUERO DOMINAR COMANDOS ELÉTRICOS</CTA>
           </div>
         </div>
       </section>
