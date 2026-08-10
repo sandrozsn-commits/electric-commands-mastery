@@ -428,6 +428,56 @@ function Index() {
         </div>
       </section>
 
+      {/* ----------------------------- VOLUME DE VENDAS --------------------- */}
+      <section className="bg-secondary/30 py-16">
+        <div className="mx-auto max-w-4xl px-5 text-center">
+          <SectionTag>Volume de vendas</SectionTag>
+          <div id="vendas-counter" className="mt-8">
+            <h2 className="font-display text-5xl font-extrabold text-foreground sm:text-7xl">
+              +{count.toLocaleString("pt-BR")}
+            </h2>
+            <p className="mt-4 text-xl font-bold text-accent sm:text-2xl uppercase tracking-wider">
+              Livros vendidos
+            </p>
+            <p className="mx-auto mt-4 max-w-xl text-lg text-muted-foreground">
+              Milhares de eletricistas, técnicos e estudantes já escolheram o Manual Comandos Elétricos
+              como seu guia definitivo de campo.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ----------------------------- GALERIA PROVA SOCIAL ----------------- */}
+      <section className="py-20">
+        <div className="mx-auto max-w-6xl px-5">
+          <div className="text-center">
+            <SectionTag>Quem já recebeu, aprova</SectionTag>
+            <h2 className="mt-5 text-3xl font-bold sm:text-4xl">
+              Fotos reais do nosso manual pelo Brasil
+            </h2>
+          </div>
+          
+          <div className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-4">
+            {realSocialProof.map((img, i) => (
+              <div key={i} className="group relative aspect-[3/4] overflow-hidden rounded-2xl bg-secondary">
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  loading="lazy"
+                  width={400}
+                  height={533}
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
+                <div className="absolute bottom-4 left-4 right-4 translate-y-2 opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100">
+                  <p className="text-[10px] font-bold text-white uppercase tracking-wider">{img.alt}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ----------------------------- BENEFÍCIOS --------------------------- */}
       <section className="mx-auto max-w-6xl px-5 py-20">
         <div className="max-w-2xl">
