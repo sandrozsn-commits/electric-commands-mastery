@@ -145,6 +145,25 @@ const bonuses = [
   },
 ];
 
+const realSocialProof = [
+  {
+    src: "https://livrocomandoseletricos.com.br//franquias/2/343088/editor-html/12290977.png",
+    alt: "Eletricista recebendo o Manual Comandos Elétricos",
+  },
+  {
+    src: "https://livrocomandoseletricos.com.br//franquias/2/343088/editor-html/12290977.png",
+    alt: "Cliente satisfeito com o livro físico",
+  },
+  {
+    src: "https://livrocomandoseletricos.com.br//franquias/2/343088/editor-html/12290977.png",
+    alt: "Manual na bancada de trabalho",
+  },
+  {
+    src: "https://livrocomandoseletricos.com.br//franquias/2/343088/editor-html/12290977.png",
+    alt: "Detalhe das páginas do Manual",
+  },
+];
+
 const testimonials = [
   {
     name: "Rogério M.",
