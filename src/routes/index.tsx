@@ -552,7 +552,7 @@ function Index() {
               ))}
             </ul>
             <p className="mt-5 text-sm text-ink-foreground/70">
-              Valor total dos itens: <strong className="text-ink-foreground">R$ 774,90</strong>
+              Valor total dos itens: <strong className="text-ink-foreground">R$ 397,90</strong>
             </p>
           </div>
 
@@ -560,22 +560,50 @@ function Index() {
             <p className="text-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
               Hoje você leva tudo por
             </p>
-            <p className="mt-2 text-sm text-muted-foreground line-through">De R$ 774,90</p>
-            <p className="mt-1 font-display text-5xl font-extrabold">R$ 119,90</p>
-            <p className="mt-2 text-[0.98rem] text-muted-foreground">
-              à vista no cartão ou boleto — ou <strong className="text-foreground">no PIX com desconto</strong>,
-              com liberação imediata do PDF.
-            </p>
-            <CTA className="mt-6 w-full">Comprar o Manual agora</CTA>
-            <ul className="mt-6 space-y-2 text-sm text-muted-foreground">
-              {["Frete grátis para todo o Brasil", "E-book liberado em minutos", "Garantia incondicional de 7 dias", "Compra 100% segura"].map(
-                (t) => (
-                  <li key={t} className="flex items-center gap-2">
-                    <Check className="h-4 w-4 shrink-0 text-success" />
-                    {t}
-                  </li>
-                ),
-              )}
+            <p className="mt-2 text-sm text-muted-foreground line-through">De R$ 397,90</p>
+            <div className="mt-1 flex flex-col">
+              <span className="font-display text-5xl font-extrabold text-foreground">R$ 119,90</span>
+              <span className="mt-1 text-sm font-semibold text-success">Você economiza R$ 278,00</span>
+            </div>
+            
+            <div className="mt-6 space-y-4">
+              <div className="rounded-2xl border border-border bg-secondary/30 p-4">
+                <p className="text-sm font-bold text-foreground">CONDIÇÕES ESPECIAIS:</p>
+                <div className="mt-2 space-y-2">
+                  <div className="flex items-center justify-between border-b border-border pb-2 text-sm">
+                    <span>Cartão ou Boleto</span>
+                    <span className="font-bold">12x de R$ 11,99</span>
+                  </div>
+                  <div className="flex items-center justify-between pt-1 text-sm">
+                    <span className="flex items-center gap-1">PIX <span className="rounded bg-accent/10 px-1.5 py-0.5 text-[10px] text-accent font-bold">10% OFF</span></span>
+                    <span className="text-lg font-extrabold text-accent">R$ 107,91</span>
+                  </div>
+                </div>
+              </div>
+
+              <CTA className="w-full">QUERO MEU LIVRO + BÔNUS</CTA>
+              <p className="text-center text-xs font-medium text-muted-foreground">
+                12x de R$ 11,99 • PIX R$ 107,91 • Frete grátis
+              </p>
+            </div>
+
+            <ul className="mt-8 grid grid-cols-2 gap-3 text-[11px] font-bold uppercase tracking-wider text-muted-foreground">
+              <li className="flex items-center gap-2">
+                <ShieldCheck className="h-3.5 w-3.5 text-success" />
+                Compra segura
+              </li>
+              <li className="flex items-center gap-2">
+                <ShieldCheck className="h-3.5 w-3.5 text-success" />
+                Pagamento seguro
+              </li>
+              <li className="flex items-center gap-2">
+                <ShieldCheck className="h-3.5 w-3.5 text-success" />
+                Garantia 7 dias
+              </li>
+              <li className="flex items-center gap-2">
+                <Truck className="h-3.5 w-3.5 text-success" />
+                Frete grátis
+              </li>
             </ul>
           </div>
         </div>
