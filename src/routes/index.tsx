@@ -34,17 +34,17 @@ const CHECKOUT_URL = "#oferta";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Manual Definitivo Comandos Elétricos | Livro + E-book e Bônus" },
+      { title: "Manual Definitivo Comandos Elétricos | Domine com Segurança" },
       {
         name: "description",
         content:
-          "O manual definitivo para dominar comandos elétricos: livro físico de 312 páginas, e-book em PDF com entrega imediata e bônus. R$ 119,90, frete grátis e garantia de 7 dias.",
+          "O manual definitivo para dominar comandos elétricos. Livro físico, e-book e bônus exclusivos por apenas R$ 119,90. Frete grátis e 7 dias de garantia.",
       },
-      { property: "og:title", content: "Manual Definitivo Comandos Elétricos | Livro + E-book e Bônus" },
+      { property: "og:title", content: "Manual Definitivo Comandos Elétricos | Domine com Segurança" },
       {
         property: "og:description",
         content:
-          "O manual definitivo para dominar comandos elétricos: livro físico de 312 páginas, e-book em PDF com entrega imediata e bônus. R$ 119,90, frete grátis e garantia de 7 dias.",
+          "O manual definitivo para dominar comandos elétricos. Livro físico, e-book e bônus exclusivos por apenas R$ 119,90. Frete grátis e 7 dias de garantia.",
       },
       { property: "og:type", content: "product" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -56,9 +56,10 @@ export const Route = createFileRoute("/")({
 /* ---------------------------------- data --------------------------------- */
 
 const seals = [
-  { icon: Zap, label: "E-book na hora" },
-  { icon: Truck, label: "Frete grátis" },
+  { icon: ShieldCheck, label: "Compra segura" },
+  { icon: ShieldCheck, label: "Pagamento seguro" },
   { icon: ShieldCheck, label: "Garantia 7 dias" },
+  { icon: Truck, label: "Frete grátis" },
 ];
 
 const pains = [
@@ -113,42 +114,34 @@ const comparison = [
 ];
 
 const included = [
-  { name: "Livro físico — 312 páginas, 2ª edição", value: "R$ 169,90" },
-  { name: "E-book oficial em PDF (entrega imediata)", value: "R$ 97,00" },
-  { name: "Bônus 1 — Aulas de análise de diagramas", value: "R$ 197,00" },
-  { name: "Bônus 2 — Simuladores de circuitos", value: "R$ 147,00" },
-  { name: "Bônus 3 — NR-10 comentada em PDF", value: "R$ 97,00" },
-  { name: "Bônus 4 — Exercícios resolvidos para praticar", value: "R$ 67,00" },
+  { name: "Livro físico", value: "R$ 169,90" },
+  { name: "E-book oficial", value: "R$ 97,00" },
+  { name: "NR-10 Comentada", value: "R$ 37,00" },
+  { name: "Videoaulas exclusivas", value: "R$ 47,00" },
+  { name: "Simuladores de circuitos", value: "R$ 47,00" },
 ];
 
 const bonuses = [
   {
-    icon: CircuitBoard,
+    icon: ShieldCheck,
     tag: "Bônus 01",
-    title: "Aulas de Análise de Diagramas",
-    value: "R$ 197,00",
-    text: "Videoaulas onde o autor destrincha, contato por contato, as chaves de partida que estão no livro.",
+    title: "NR-10 Comentada",
+    value: "R$ 37,00",
+    text: "A norma explicada em linguagem de campo para você trabalhar protegido.",
+  },
+  {
+    icon: CircuitBoard,
+    tag: "Bônus 02",
+    title: "Videoaulas de Diagramas",
+    value: "R$ 47,00",
+    text: "Videoaulas onde destrinchamos contato por contato as chaves de partida.",
   },
   {
     icon: Cpu,
-    tag: "Bônus 02",
-    title: "Simuladores de Circuitos",
-    value: "R$ 147,00",
-    text: "Programas para montar, testar e errar à vontade no computador antes de encostar no painel.",
-  },
-  {
-    icon: ShieldCheck,
     tag: "Bônus 03",
-    title: "NR-10 Comentada",
-    value: "R$ 97,00",
-    text: "A norma explicada artigo por artigo, em linguagem de campo, para você trabalhar protegido.",
-  },
-  {
-    icon: FileText,
-    tag: "Bônus 04",
-    title: "Caderno de Exercícios",
-    value: "R$ 67,00",
-    text: "Lista prática para acompanhar as aulas e fixar dimensionamentos e leitura de diagramas.",
+    title: "Simuladores de Circuitos",
+    value: "R$ 47,00",
+    text: "Programas para testar circuitos no computador antes de ir para o painel.",
   },
 ];
 
@@ -252,7 +245,7 @@ function Index() {
       {/* ------------------------------- HERO ------------------------------- */}
       <section className="bg-ink-gradient relative overflow-hidden text-ink-foreground">
         <div className="pointer-events-none absolute -right-40 -top-40 h-96 w-96 rounded-full bg-accent/20 blur-3xl" />
-        <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-16 lg:grid-cols-[1.05fr_1fr] lg:py-24">
+        <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-16 lg:grid-cols-[1.1fr_1fr] lg:py-24">
           <div className="animate-rise">
             <SectionTag>
               <span className="text-accent">•</span> Livro físico + E-book + Bônus
@@ -263,26 +256,40 @@ function Index() {
               conteúdos soltos na internet.
             </h1>
             <p className="mt-6 max-w-xl text-lg text-ink-foreground/75">
-              312 páginas de manual técnico na sua bancada, o e-book oficial em PDF no seu celular
-              hoje mesmo e os bônus completos. Diagramas, dimensionamentos, motores e diagnóstico
-              de defeitos explicados em linguagem de campo.
+              Aprenda a interpretar diagramas, dimensionar componentes e diagnosticar defeitos com
+              segurança. Guia completo para eletricistas, técnicos e estudantes.
             </p>
 
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <CTA>Quero o Manual por R$ 119,90</CTA>
-              <span className="text-sm text-ink-foreground/70">
-                PIX com desconto · Frete grátis · 7 dias de garantia
-              </span>
+            <div className="mt-8">
+              <div className="mb-4">
+                <span className="text-lg text-ink-foreground/60 line-through">De R$ 397,90</span>
+                <div className="flex items-baseline gap-3">
+                  <span className="text-4xl font-extrabold text-accent">R$ 119,90</span>
+                  <span className="text-sm font-medium text-ink-foreground/70">12x de R$ 11,99</span>
+                </div>
+                <p className="mt-1 text-sm font-semibold text-success">Você economiza R$ 278,00</p>
+              </div>
+              
+              <div className="flex flex-col gap-3">
+                <CTA className="w-full sm:w-fit">QUERO MEU LIVRO + BÔNUS</CTA>
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-medium text-ink-foreground/70">
+                  <span>12x de R$ 11,99</span>
+                  <span className="h-1 w-1 rounded-full bg-ink-foreground/30" />
+                  <span className="text-accent">PIX R$ 107,91</span>
+                  <span className="h-1 w-1 rounded-full bg-ink-foreground/30" />
+                  <span>Frete grátis</span>
+                </div>
+              </div>
             </div>
 
-            <ul className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3">
+            <ul className="mt-10 flex flex-wrap gap-3">
               {seals.map((s) => (
                 <li
                   key={s.label}
-                  className="flex min-w-0 items-center gap-2 rounded-xl border border-ink-foreground/15 bg-ink-foreground/5 px-3 py-2 text-xs font-semibold"
+                  className="flex items-center gap-2 rounded-xl border border-ink-foreground/15 bg-ink-foreground/5 px-3 py-2 text-xs font-semibold"
                 >
                   <s.icon className="h-4 w-4 shrink-0 text-accent" />
-                  <span className="truncate">{s.label}</span>
+                  <span>{s.label}</span>
                 </li>
               ))}
             </ul>
@@ -410,7 +417,7 @@ function Index() {
             ))}
           </div>
           <div className="mt-10">
-            <CTA>Quero dominar comandos elétricos</CTA>
+            <CTA>QUERO DOMINAR COMANDOS ELÉTRICOS</CTA>
           </div>
         </div>
       </section>
@@ -545,7 +552,7 @@ function Index() {
               ))}
             </ul>
             <p className="mt-5 text-sm text-ink-foreground/70">
-              Valor total dos itens: <strong className="text-ink-foreground">R$ 774,90</strong>
+              Valor total dos itens: <strong className="text-ink-foreground">R$ 397,90</strong>
             </p>
           </div>
 
@@ -553,22 +560,50 @@ function Index() {
             <p className="text-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
               Hoje você leva tudo por
             </p>
-            <p className="mt-2 text-sm text-muted-foreground line-through">De R$ 774,90</p>
-            <p className="mt-1 font-display text-5xl font-extrabold">R$ 119,90</p>
-            <p className="mt-2 text-[0.98rem] text-muted-foreground">
-              à vista no cartão ou boleto — ou <strong className="text-foreground">no PIX com desconto</strong>,
-              com liberação imediata do PDF.
-            </p>
-            <CTA className="mt-6 w-full">Comprar o Manual agora</CTA>
-            <ul className="mt-6 space-y-2 text-sm text-muted-foreground">
-              {["Frete grátis para todo o Brasil", "E-book liberado em minutos", "Garantia incondicional de 7 dias", "Compra 100% segura"].map(
-                (t) => (
-                  <li key={t} className="flex items-center gap-2">
-                    <Check className="h-4 w-4 shrink-0 text-success" />
-                    {t}
-                  </li>
-                ),
-              )}
+            <p className="mt-2 text-sm text-muted-foreground line-through">De R$ 397,90</p>
+            <div className="mt-1 flex flex-col">
+              <span className="font-display text-5xl font-extrabold text-foreground">R$ 119,90</span>
+              <span className="mt-1 text-sm font-semibold text-success">Você economiza R$ 278,00</span>
+            </div>
+            
+            <div className="mt-6 space-y-4">
+              <div className="rounded-2xl border border-border bg-secondary/30 p-4">
+                <p className="text-sm font-bold text-foreground">CONDIÇÕES ESPECIAIS:</p>
+                <div className="mt-2 space-y-2">
+                  <div className="flex items-center justify-between border-b border-border pb-2 text-sm">
+                    <span>Cartão ou Boleto</span>
+                    <span className="font-bold">12x de R$ 11,99</span>
+                  </div>
+                  <div className="flex items-center justify-between pt-1 text-sm">
+                    <span className="flex items-center gap-1">PIX <span className="rounded bg-accent/10 px-1.5 py-0.5 text-[10px] text-accent font-bold">10% OFF</span></span>
+                    <span className="text-lg font-extrabold text-accent">R$ 107,91</span>
+                  </div>
+                </div>
+              </div>
+
+              <CTA className="w-full">QUERO MEU LIVRO + BÔNUS</CTA>
+              <p className="text-center text-xs font-medium text-muted-foreground">
+                12x de R$ 11,99 • PIX R$ 107,91 • Frete grátis
+              </p>
+            </div>
+
+            <ul className="mt-8 grid grid-cols-2 gap-3 text-[11px] font-bold uppercase tracking-wider text-muted-foreground">
+              <li className="flex items-center gap-2">
+                <ShieldCheck className="h-3.5 w-3.5 text-success" />
+                Compra segura
+              </li>
+              <li className="flex items-center gap-2">
+                <ShieldCheck className="h-3.5 w-3.5 text-success" />
+                Pagamento seguro
+              </li>
+              <li className="flex items-center gap-2">
+                <ShieldCheck className="h-3.5 w-3.5 text-success" />
+                Garantia 7 dias
+              </li>
+              <li className="flex items-center gap-2">
+                <Truck className="h-3.5 w-3.5 text-success" />
+                Frete grátis
+              </li>
             </ul>
           </div>
         </div>
@@ -699,16 +734,19 @@ function Index() {
             Da próxima vez que o painel parar, você vai saber exatamente o que fazer.
           </h2>
           <p className="mt-5 text-lg text-ink-foreground/75">
-            Livro físico de 312 páginas + e-book em PDF imediato + 4 bônus. Frete grátis, PIX com
-            desconto e 7 dias de garantia.
+            Livro físico + e-book em PDF + 3 bônus. Frete grátis, PIX com desconto e 7 dias de garantia.
           </p>
-          <p className="mt-8 font-display text-5xl font-extrabold">R$ 119,90</p>
-          <div className="mt-8 flex justify-center">
-            <CTA>Garantir meu Manual Comandos Elétricos</CTA>
+          <div className="mt-8 flex flex-col items-center">
+            <span className="text-lg text-ink-foreground/60 line-through">De R$ 397,90</span>
+            <span className="mt-1 font-display text-6xl font-extrabold text-accent">R$ 119,90</span>
+            <span className="mt-2 text-sm font-semibold text-success">Você economiza R$ 278,00</span>
           </div>
-          <p className="mt-6 text-sm text-ink-foreground/60">
-            Vendido e entregue pela Academia do Eletricista · ISBN 978-65-00-94683-3
-          </p>
+          <div className="mt-8 flex flex-col items-center">
+            <CTA>QUERO MEU LIVRO + BÔNUS</CTA>
+            <p className="mt-4 text-sm font-medium text-ink-foreground/70">
+              12x de R$ 11,99 • PIX R$ 107,91 • Frete grátis
+            </p>
+          </div>
         </div>
       </section>
 
@@ -729,12 +767,12 @@ function Index() {
       >
         <div className="mx-auto grid max-w-5xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 py-3">
           <div className="min-w-0">
-            <p className="truncate text-sm font-bold">Manual Comandos Elétricos — Livro + PDF + Bônus</p>
+            <p className="truncate text-sm font-bold text-accent">R$ 119,90 ou R$ 107,91 no PIX</p>
             <p className="truncate text-xs text-muted-foreground">
-              R$ 119,90 · Frete grátis · Garantia de 7 dias
+              Manual Definitivo — Livro + E-book + Bônus
             </p>
           </div>
-          <CTA size="sm">Comprar</CTA>
+          <CTA size="sm">QUERO MEU LIVRO</CTA>
         </div>
       </div>
     </main>
