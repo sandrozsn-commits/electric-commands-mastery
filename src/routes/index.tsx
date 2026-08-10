@@ -734,16 +734,19 @@ function Index() {
             Da próxima vez que o painel parar, você vai saber exatamente o que fazer.
           </h2>
           <p className="mt-5 text-lg text-ink-foreground/75">
-            Livro físico de 312 páginas + e-book em PDF imediato + 4 bônus. Frete grátis, PIX com
-            desconto e 7 dias de garantia.
+            Livro físico + e-book em PDF + 3 bônus. Frete grátis, PIX com desconto e 7 dias de garantia.
           </p>
-          <p className="mt-8 font-display text-5xl font-extrabold">R$ 119,90</p>
-          <div className="mt-8 flex justify-center">
-            <CTA>Garantir meu Manual Comandos Elétricos</CTA>
+          <div className="mt-8 flex flex-col items-center">
+            <span className="text-lg text-ink-foreground/60 line-through">De R$ 397,90</span>
+            <span className="mt-1 font-display text-6xl font-extrabold text-accent">R$ 119,90</span>
+            <span className="mt-2 text-sm font-semibold text-success">Você economiza R$ 278,00</span>
           </div>
-          <p className="mt-6 text-sm text-ink-foreground/60">
-            Vendido e entregue pela Academia do Eletricista · ISBN 978-65-00-94683-3
-          </p>
+          <div className="mt-8 flex flex-col items-center">
+            <CTA>QUERO MEU LIVRO + BÔNUS</CTA>
+            <p className="mt-4 text-sm font-medium text-ink-foreground/70">
+              12x de R$ 11,99 • PIX R$ 107,91 • Frete grátis
+            </p>
+          </div>
         </div>
       </section>
 
