@@ -232,13 +232,48 @@ function SectionTag({ children }: { children: React.ReactNode }) {
 function Index() {
   const [showBar, setShowBar] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const [count, setCount] = useState(0);
+  const [hasStartedCount, setHasStartedCount] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setShowBar(window.scrollY > 700);
+    const onScroll = () => {
+      setShowBar(window.scrollY > 700);
+
+      // Simple viewport detection for counter
+      const counterEl = document.getElementById("vendas-counter");
+      if (counterEl && !hasStartedCount) {
+        const rect = counterEl.getBoundingClientRect();
+        if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+          setHasStartedCount(true);
+        }
+      }
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [hasStartedCount]);
+
+  useEffect(() => {
+    if (hasStartedCount) {
+      const target = 16233;
+      const duration = 2000;
+      const stepTime = 20;
+      const steps = duration / stepTime;
+      const increment = target / steps;
+      let current = 0;
+
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          setCount(target);
+          clearInterval(timer);
+        } else {
+          setCount(Math.floor(current));
+        }
+      }, stepTime);
+      return () => clearInterval(timer);
+    }
+  }, [hasStartedCount]);
 
   return (
     <main className="bg-background text-foreground">
