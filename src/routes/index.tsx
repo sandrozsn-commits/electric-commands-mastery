@@ -34,17 +34,17 @@ const CHECKOUT_URL = "#oferta";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Kit Comandos Elétricos | Livro + E-book e Bônus" },
+      { title: "Manual Definitivo Comandos Elétricos | Livro + E-book e Bônus" },
       {
         name: "description",
         content:
-          "O kit definitivo para dominar comandos elétricos: livro físico de 312 páginas, e-book em PDF com entrega imediata e bônus. R$ 119,90, frete grátis e garantia de 7 dias.",
+          "O manual definitivo para dominar comandos elétricos: livro físico de 312 páginas, e-book em PDF com entrega imediata e bônus. R$ 119,90, frete grátis e garantia de 7 dias.",
       },
-      { property: "og:title", content: "Kit Comandos Elétricos | Livro + E-book e Bônus" },
+      { property: "og:title", content: "Manual Definitivo Comandos Elétricos | Livro + E-book e Bônus" },
       {
         property: "og:description",
         content:
-          "O kit definitivo para dominar comandos elétricos: livro físico de 312 páginas, e-book em PDF com entrega imediata e bônus. R$ 119,90, frete grátis e garantia de 7 dias.",
+          "O manual definitivo para dominar comandos elétricos: livro físico de 312 páginas, e-book em PDF com entrega imediata e bônus. R$ 119,90, frete grátis e garantia de 7 dias.",
       },
       { property: "og:type", content: "product" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -205,7 +205,7 @@ const faqs = [
 /* -------------------------------- helpers -------------------------------- */
 
 function CTA({
-  children = "Quero o Kit Completo",
+  children = "Quero o Manual Completo",
   size = "lg",
   className = "",
 }: {
@@ -258,9 +258,9 @@ function Index() {
               <span className="text-accent">•</span> Livro físico + E-book + Bônus
             </SectionTag>
             <h1 className="mt-6 text-4xl font-extrabold leading-[1.05] sm:text-5xl lg:text-[3.4rem]">
-              O Kit Definitivo para{" "}
+              O Manual Definitivo para{" "}
               <span className="text-accent">Dominar Comandos Elétricos</span> — sem depender de
-              vídeo solto na internet.
+              conteúdos soltos na internet.
             </h1>
             <p className="mt-6 max-w-xl text-lg text-ink-foreground/75">
               312 páginas de manual técnico na sua bancada, o e-book oficial em PDF no seu celular
@@ -269,7 +269,7 @@ function Index() {
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <CTA>Quero o Kit por R$ 119,90</CTA>
+              <CTA>Quero o Manual por R$ 119,90</CTA>
               <span className="text-sm text-ink-foreground/70">
                 PIX com desconto · Frete grátis · 7 dias de garantia
               </span>
@@ -337,7 +337,7 @@ function Index() {
             className="w-full rounded-3xl border border-border bg-card shadow-[var(--shadow-lift)]"
           />
           <div>
-            <SectionTag>O kit</SectionTag>
+            <SectionTag>O manual</SectionTag>
             <h2 className="mt-5 text-3xl font-bold sm:text-4xl">
               Você não compra um livro. Você monta a sua bancada de estudo.
             </h2>
@@ -393,7 +393,7 @@ function Index() {
       <section className="bg-ink-gradient py-20 text-ink-foreground">
         <div className="mx-auto max-w-6xl px-5">
           <div className="max-w-2xl">
-            <SectionTag>Depois do kit</SectionTag>
+            <SectionTag>Depois do manual</SectionTag>
             <h2 className="mt-5 text-3xl font-bold sm:text-4xl">
               O que você vai ser capaz de fazer na próxima segunda-feira.
             </h2>
@@ -428,7 +428,7 @@ function Index() {
           <div className="grid grid-cols-[1fr_auto_auto] items-center gap-4 border-b border-border bg-secondary/70 px-5 py-4 text-xs font-bold uppercase tracking-wider sm:px-8">
             <span className="text-muted-foreground">Critério</span>
             <span className="w-20 text-center text-muted-foreground">Vídeos e apostilas</span>
-            <span className="w-20 text-center text-accent">O Kit</span>
+            <span className="w-20 text-center text-accent">O Manual</span>
           </div>
           {comparison.map(([label, a, b]) => (
             <div
@@ -498,7 +498,7 @@ function Index() {
         <div className="max-w-2xl">
           <SectionTag>Bônus inclusos</SectionTag>
           <h2 className="mt-5 text-3xl font-bold sm:text-4xl">
-            Quatro materiais que sozinhos já valem mais que o kit.
+            Quatro materiais que sozinhos já valem mais que o manual.
           </h2>
         </div>
         <div className="mt-10 grid gap-5 sm:grid-cols-2">
@@ -527,7 +527,7 @@ function Index() {
         <div className="mx-auto grid max-w-5xl gap-10 px-5 lg:grid-cols-[1.1fr_1fr] lg:items-center">
           <div>
             <SectionTag>O que você recebe</SectionTag>
-            <h2 className="mt-5 text-3xl font-bold sm:text-4xl">Tudo que entra no seu kit hoje.</h2>
+            <h2 className="mt-5 text-3xl font-bold sm:text-4xl">Tudo que entra no seu manual hoje.</h2>
             <ul className="mt-8 space-y-3">
               {included.map((i) => (
                 <li
@@ -559,7 +559,7 @@ function Index() {
               à vista no cartão ou boleto — ou <strong className="text-foreground">no PIX com desconto</strong>,
               com liberação imediata do PDF.
             </p>
-            <CTA className="mt-6 w-full">Comprar o Kit agora</CTA>
+            <CTA className="mt-6 w-full">Comprar o Manual agora</CTA>
             <ul className="mt-6 space-y-2 text-sm text-muted-foreground">
               {["Frete grátis para todo o Brasil", "E-book liberado em minutos", "Garantia incondicional de 7 dias", "Compra 100% segura"].map(
                 (t) => (
@@ -579,7 +579,7 @@ function Index() {
         <div className="grid items-center gap-12 lg:grid-cols-[0.8fr_1fr]">
           <img
             src={authorPhoto.url}
-            alt="Sandro Zander Soares Nogueira, autor do Kit Comandos Elétricos"
+            alt="Sandro Zander Soares Nogueira, autor do Manual Comandos Elétricos"
             width={470}
             height={569}
             loading="lazy"
@@ -653,7 +653,7 @@ function Index() {
           </span>
           <h2 className="mt-6 text-3xl font-bold sm:text-4xl">Seu risco é exatamente zero.</h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
-            Receba o kit, leia o e-book, folheie o livro. Se em até 7 dias você achar que o
+            Receba o manual, leia o e-book, folheie o livro. Se em até 7 dias você achar que o
             material não é o que esperava, envia um único e-mail para o suporte e devolvemos 100%
             do valor. Sem formulário, sem enrolação.
           </p>
@@ -704,7 +704,7 @@ function Index() {
           </p>
           <p className="mt-8 font-display text-5xl font-extrabold">R$ 119,90</p>
           <div className="mt-8 flex justify-center">
-            <CTA>Garantir meu Kit Comandos Elétricos</CTA>
+            <CTA>Garantir meu Manual Comandos Elétricos</CTA>
           </div>
           <p className="mt-6 text-sm text-ink-foreground/60">
             Vendido e entregue pela Academia do Eletricista · ISBN 978-65-00-94683-3
@@ -713,7 +713,7 @@ function Index() {
       </section>
 
       <footer className="border-t border-border py-8 text-center text-sm text-muted-foreground">
-        © 2026 Academia do Eletricista — Kit Comandos Elétricos.
+        © 2026 Academia do Eletricista — Manual Comandos Elétricos.
       </footer>
 
       {/* ------------------------------ STICKY CTA -------------------------- */}
@@ -724,7 +724,7 @@ function Index() {
       >
         <div className="mx-auto grid max-w-5xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 py-3">
           <div className="min-w-0">
-            <p className="truncate text-sm font-bold">Kit Comandos Elétricos — Livro + PDF + Bônus</p>
+            <p className="truncate text-sm font-bold">Manual Comandos Elétricos — Livro + PDF + Bônus</p>
             <p className="truncate text-xs text-muted-foreground">
               R$ 119,90 · Frete grátis · Garantia de 7 dias
             </p>
