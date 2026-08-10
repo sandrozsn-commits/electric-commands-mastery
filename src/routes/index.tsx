@@ -712,8 +712,17 @@ function Index() {
         </div>
       </section>
 
-      <footer className="border-t border-border py-8 text-center text-sm text-muted-foreground">
-        © 2026 Academia do Eletricista — Manual Comandos Elétricos.
+      <footer className="border-t border-border bg-card py-12 text-center text-sm text-muted-foreground">
+        <div className="mx-auto max-w-4xl px-5">
+          <p className="font-semibold text-foreground">Sandro Zander Soares Nogueira</p>
+          <p className="mt-2">CNPJ: 34.308.810/0001-20</p>
+          <p className="mt-4">
+            Este produto não garante a obtenção de resultados. Qualquer referência ao desempenho de uma estratégia não deve ser interpretada como uma garantia de resultados.
+          </p>
+          <p className="mt-8 opacity-75">
+            © 2026 Manual Comandos Elétricos. Todos os direitos reservados.
+          </p>
+        </div>
       </footer>
 
       {/* ------------------------------ STICKY CTA -------------------------- */}
