@@ -300,6 +300,30 @@ function Index() {
         </div>
       </section>
 
+      {/* ------------------------------ PROBLEMA ---------------------------- */}
+      <section className="mx-auto max-w-6xl px-5 py-20">
+        <div className="max-w-2xl">
+          <SectionTag>O grande problema</SectionTag>
+          <h2 className="mt-5 text-3xl font-bold sm:text-4xl">
+            O problema nunca foi falta de informação. É falta de{" "}
+            <span className="text-accent">ordem</span>.
+          </h2>
+          <p className="mt-4 text-lg text-muted-foreground">
+            Comando elétrico é lógica. Quando o conteúdo chega picado, em vídeos de 8 minutos e
+            apostilas sem sequência, a lógica nunca fecha na cabeça — e a insegurança aparece
+            justamente na frente do painel.
+          </p>
+        </div>
+
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {pains.map((p) => (
+            <div key={p} className="surface-card p-6">
+              <Minus className="h-5 w-5 text-destructive" />
+              <p className="mt-3 text-[0.98rem] leading-relaxed text-foreground/85">{p}</p>
+            </div>
+          ))}
+        </div>
+      </section>
 
       {/* --------------------------- APRESENTAÇÃO --------------------------- */}
       <section className="bg-secondary/60 py-20">
@@ -342,8 +366,94 @@ function Index() {
         </div>
       </section>
 
+      {/* ----------------------------- BENEFÍCIOS --------------------------- */}
+      <section className="mx-auto max-w-6xl px-5 py-20">
+        <div className="max-w-2xl">
+          <SectionTag>Conteúdo</SectionTag>
+          <h2 className="mt-5 text-3xl font-bold sm:text-4xl">
+            Tudo que um comando elétrico exige — reunido em um só material.
+          </h2>
+        </div>
+        <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+          {benefits.map((b) => (
+            <div
+              key={b.label}
+              className="surface-card flex min-w-0 items-center gap-3 px-4 py-5 transition-transform hover:-translate-y-1"
+            >
+              <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-accent/12 text-accent">
+                <b.icon className="h-5 w-5" />
+              </span>
+              <span className="truncate text-sm font-semibold">{b.label}</span>
+            </div>
+          ))}
+        </div>
+      </section>
 
+      {/* ----------------------------- RESULTADOS --------------------------- */}
+      <section className="bg-ink-gradient py-20 text-ink-foreground">
+        <div className="mx-auto max-w-6xl px-5">
+          <div className="max-w-2xl">
+            <SectionTag>Depois do manual</SectionTag>
+            <h2 className="mt-5 text-3xl font-bold sm:text-4xl">
+              O que você vai ser capaz de fazer na próxima segunda-feira.
+            </h2>
+          </div>
+          <div className="mt-10 grid gap-4 sm:grid-cols-2">
+            {outcomes.map((o) => (
+              <div
+                key={o}
+                className="flex items-start gap-3 rounded-2xl border border-ink-foreground/12 bg-ink-foreground/5 p-5"
+              >
+                <Check className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
+                <p className="text-[0.98rem] leading-relaxed">{o}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-10">
+            <CTA>Quero dominar comandos elétricos</CTA>
+          </div>
+        </div>
+      </section>
 
+      {/* ----------------------------- COMPARAÇÃO --------------------------- */}
+      <section className="mx-auto max-w-5xl px-5 py-20">
+        <div className="max-w-2xl">
+          <SectionTag>Comparativo</SectionTag>
+          <h2 className="mt-5 text-3xl font-bold sm:text-4xl">
+            Por que este material é diferente do que você já tentou.
+          </h2>
+        </div>
+
+        <div className="surface-card mt-10 overflow-hidden">
+          <div className="grid grid-cols-[1fr_auto_auto] items-center gap-4 border-b border-border bg-secondary/70 px-5 py-4 text-xs font-bold uppercase tracking-wider sm:px-8">
+            <span className="text-muted-foreground">Critério</span>
+            <span className="w-20 text-center text-muted-foreground">Vídeos e apostilas</span>
+            <span className="w-20 text-center text-accent">O Manual</span>
+          </div>
+          {comparison.map(([label, a, b]) => (
+            <div
+              key={String(label)}
+              className="grid grid-cols-[1fr_auto_auto] items-center gap-4 border-b border-border px-5 py-4 last:border-0 sm:px-8"
+            >
+              <span className="min-w-0 text-sm font-medium sm:text-base">{label}</span>
+              <span className="grid w-20 place-items-center">
+                {a ? (
+                  <Check className="h-5 w-5 text-success" />
+                ) : (
+                  <Minus className="h-5 w-5 text-muted-foreground" />
+                )}
+              </span>
+              <span className="grid w-20 place-items-center">
+                {b ? (
+                  <Check className="h-5 w-5 text-success" />
+                ) : (
+                  <Minus className="h-5 w-5 text-muted-foreground" />
+                )}
+              </span>
+            </div>
+          ))}
+        </div>
+      </section>
 
       {/* ---------------------------- CONHEÇA O LIVRO ------------------------ */}
       <section className="bg-secondary/60 py-20">
@@ -501,6 +611,39 @@ function Index() {
         </div>
       </section>
 
+      {/* ----------------------------- DEPOIMENTOS -------------------------- */}
+      <section className="bg-secondary/60 py-20">
+        <div className="mx-auto max-w-6xl px-5">
+          <div className="max-w-2xl">
+            <SectionTag>Quem já usa</SectionTag>
+            <h2 className="mt-5 text-3xl font-bold sm:text-4xl">
+              Eletricistas, técnicos e estudantes que pararam de adivinhar.
+            </h2>
+          </div>
+          <div className="mt-10 grid gap-5 sm:grid-cols-2">
+            {testimonials.map((t) => (
+              <figure key={t.name} className="surface-card p-7">
+                <Quote className="h-6 w-6 text-accent" />
+                <blockquote className="mt-4 text-[1.02rem] leading-relaxed">{t.text}</blockquote>
+                <figcaption className="mt-6 flex min-w-0 items-center gap-3">
+                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-ink font-display text-sm font-bold text-ink-foreground">
+                    {t.name.charAt(0)}
+                  </span>
+                  <span className="min-w-0">
+                    <span className="block truncate text-sm font-bold">{t.name}</span>
+                    <span className="block truncate text-xs text-muted-foreground">{t.role}</span>
+                  </span>
+                  <span className="ml-auto flex shrink-0 gap-0.5">
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <Star key={i} className="h-4 w-4 fill-accent text-accent" />
+                    ))}
+                  </span>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* ------------------------------ GARANTIA ---------------------------- */}
       <section className="mx-auto max-w-4xl px-5 py-20">
