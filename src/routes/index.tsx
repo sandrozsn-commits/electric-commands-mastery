@@ -292,6 +292,7 @@ function Index() {
       }, stepTime);
       return () => clearInterval(timer);
     }
+    return undefined;
   }, [hasStartedCount]);
 
   return (
