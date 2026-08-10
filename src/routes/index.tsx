@@ -767,12 +767,12 @@ function Index() {
       >
         <div className="mx-auto grid max-w-5xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 py-3">
           <div className="min-w-0">
-            <p className="truncate text-sm font-bold">Manual Comandos Elétricos — Livro + PDF + Bônus</p>
+            <p className="truncate text-sm font-bold text-accent">R$ 119,90 ou R$ 107,91 no PIX</p>
             <p className="truncate text-xs text-muted-foreground">
-              R$ 119,90 · Frete grátis · Garantia de 7 dias
+              Manual Definitivo — Livro + E-book + Bônus
             </p>
           </div>
-          <CTA size="sm">Comprar</CTA>
+          <CTA size="sm">QUERO MEU LIVRO</CTA>
         </div>
       </div>
     </main>
