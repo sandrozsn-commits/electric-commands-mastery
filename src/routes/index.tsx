@@ -44,7 +44,7 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "Livro físico de 312 páginas + e-book imediato + bônus. Aprenda diagramas, dimensionamentos, motores e defeitos com linguagem simples.",
+          "O kit definitivo para dominar comandos elétricos: livro físico de 312 páginas, e-book em PDF com entrega imediata e bônus. R$ 119,90, frete grátis e garantia de 7 dias.",
       },
       { property: "og:type", content: "product" },
       { name: "twitter:card", content: "summary_large_image" },
