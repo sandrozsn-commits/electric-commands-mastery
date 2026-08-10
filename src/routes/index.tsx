@@ -259,7 +259,7 @@ function Index() {
             </SectionTag>
             <h1 className="mt-6 text-4xl font-extrabold leading-[1.05] sm:text-5xl lg:text-[3.4rem]">
               O Manual Definitivo para{" "}
-              <span className="text-accent">Dominar Comandos Elétricos</span> — sem depender de
+              <span className="text-accent">Dominar Comandos Elétricos</span> - sem depender de
               conteúdos soltos na internet.
             </h1>
             <p className="mt-6 max-w-xl text-lg text-ink-foreground/75">
