@@ -245,7 +245,7 @@ function Index() {
       {/* ------------------------------- HERO ------------------------------- */}
       <section className="bg-ink-gradient relative overflow-hidden text-ink-foreground">
         <div className="pointer-events-none absolute -right-40 -top-40 h-96 w-96 rounded-full bg-accent/20 blur-3xl" />
-        <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-16 lg:grid-cols-[1.05fr_1fr] lg:py-24">
+        <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-16 lg:grid-cols-[1.1fr_1fr] lg:py-24">
           <div className="animate-rise">
             <SectionTag>
               <span className="text-accent">•</span> Livro físico + E-book + Bônus
@@ -256,26 +256,40 @@ function Index() {
               conteúdos soltos na internet.
             </h1>
             <p className="mt-6 max-w-xl text-lg text-ink-foreground/75">
-              312 páginas de manual técnico na sua bancada, o e-book oficial em PDF no seu celular
-              hoje mesmo e os bônus completos. Diagramas, dimensionamentos, motores e diagnóstico
-              de defeitos explicados em linguagem de campo.
+              Aprenda a interpretar diagramas, dimensionar componentes e diagnosticar defeitos com
+              segurança. Guia completo para eletricistas, técnicos e estudantes.
             </p>
 
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <CTA>Quero o Manual por R$ 119,90</CTA>
-              <span className="text-sm text-ink-foreground/70">
-                PIX com desconto · Frete grátis · 7 dias de garantia
-              </span>
+            <div className="mt-8">
+              <div className="mb-4">
+                <span className="text-lg text-ink-foreground/60 line-through">De R$ 397,90</span>
+                <div className="flex items-baseline gap-3">
+                  <span className="text-4xl font-extrabold text-accent">R$ 119,90</span>
+                  <span className="text-sm font-medium text-ink-foreground/70">12x de R$ 11,99</span>
+                </div>
+                <p className="mt-1 text-sm font-semibold text-success">Você economiza R$ 278,00</p>
+              </div>
+              
+              <div className="flex flex-col gap-3">
+                <CTA className="w-full sm:w-fit">QUERO MEU LIVRO + BÔNUS</CTA>
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-medium text-ink-foreground/70">
+                  <span>12x de R$ 11,99</span>
+                  <span className="h-1 w-1 rounded-full bg-ink-foreground/30" />
+                  <span className="text-accent">PIX R$ 107,91</span>
+                  <span className="h-1 w-1 rounded-full bg-ink-foreground/30" />
+                  <span>Frete grátis</span>
+                </div>
+              </div>
             </div>
 
-            <ul className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3">
+            <ul className="mt-10 flex flex-wrap gap-3">
               {seals.map((s) => (
                 <li
                   key={s.label}
-                  className="flex min-w-0 items-center gap-2 rounded-xl border border-ink-foreground/15 bg-ink-foreground/5 px-3 py-2 text-xs font-semibold"
+                  className="flex items-center gap-2 rounded-xl border border-ink-foreground/15 bg-ink-foreground/5 px-3 py-2 text-xs font-semibold"
                 >
                   <s.icon className="h-4 w-4 shrink-0 text-accent" />
-                  <span className="truncate">{s.label}</span>
+                  <span>{s.label}</span>
                 </li>
               ))}
             </ul>
