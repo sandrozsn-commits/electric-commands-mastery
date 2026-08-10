@@ -718,6 +718,9 @@ function Index() {
           <p>Academia do Eletricista</p>
           <p>Instituto Brasileiro de Qualificação Profissional Ltda - ME</p>
           <p>CNPJ: 10.984.548/0001-77</p>
+          <p className="mt-6 text-xs opacity-70">
+            Este produto não garante a obtenção de resultados. Qualquer referência ao desempenho de uma estratégia não deve ser interpretada como uma garantia de resultados.
+          </p>
         </div>
       </footer>
 
