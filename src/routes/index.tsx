@@ -70,7 +70,7 @@ const pains = [
   "Já baixou dezenas de apostilas — nenhuma com sequência lógica.",
 ];
 
-const kitAdvantages = [
+const manualAdvantages = [
   { icon: Zap, title: "Recebe agora", text: "O PDF cai no seu e-mail minutos após a compra." },
   { icon: Search, title: "Busca por palavra", text: "Digite “relé térmico” e vá direto ao ponto." },
   { icon: Smartphone, title: "Consulta na obra", text: "Celular no bolso, manual inteiro na mão." },
@@ -259,7 +259,7 @@ function Index() {
             </SectionTag>
             <h1 className="mt-6 text-4xl font-extrabold leading-[1.05] sm:text-5xl lg:text-[3.4rem]">
               O Manual Definitivo para{" "}
-              <span className="text-accent">Dominar Comandos Elétricos</span> — sem depender de
+              <span className="text-accent">Dominar Comandos Elétricos</span> - sem depender de
               conteúdos soltos na internet.
             </h1>
             <p className="mt-6 max-w-xl text-lg text-ink-foreground/75">
@@ -350,7 +350,7 @@ function Index() {
             </p>
 
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
-              {kitAdvantages.map((a) => (
+              {manualAdvantages.map((a) => (
                 <div key={a.title} className="surface-card p-5">
                   <a.icon className="h-6 w-6 text-accent" />
                   <h3 className="mt-3 text-base font-bold">{a.title}</h3>
