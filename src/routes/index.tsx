@@ -58,6 +58,7 @@ export const Route = createFileRoute("/")({
 const seals = [
   { icon: Zap, label: "E-book na hora" },
   { icon: Truck, label: "Frete grátis" },
+  { icon: ShieldCheck, label: "Garantia 7 dias" },
 ];
 
 const pains = [
