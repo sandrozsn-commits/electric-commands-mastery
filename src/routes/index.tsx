@@ -114,12 +114,11 @@ const comparison = [
 ];
 
 const included = [
-  { name: "Livro físico — 312 páginas, 2ª edição", value: "R$ 169,90" },
-  { name: "E-book oficial em PDF (entrega imediata)", value: "R$ 97,00" },
-  { name: "Bônus 1 — Aulas de análise de diagramas", value: "R$ 197,00" },
-  { name: "Bônus 2 — Simuladores de circuitos", value: "R$ 147,00" },
-  { name: "Bônus 3 — NR-10 comentada em PDF", value: "R$ 97,00" },
-  { name: "Bônus 4 — Exercícios resolvidos para praticar", value: "R$ 67,00" },
+  { name: "Livro físico", value: "R$ 169,90" },
+  { name: "E-book oficial", value: "R$ 97,00" },
+  { name: "NR-10 Comentada", value: "R$ 37,00" },
+  { name: "Videoaulas exclusivas", value: "R$ 47,00" },
+  { name: "Simuladores de circuitos", value: "R$ 47,00" },
 ];
 
 const bonuses = [
