@@ -34,17 +34,17 @@ const CHECKOUT_URL = "#oferta";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Manual Definitivo Comandos Elétricos | Livro + E-book e Bônus" },
+      { title: "Manual Definitivo Comandos Elétricos | Domine com Segurança" },
       {
         name: "description",
         content:
-          "O manual definitivo para dominar comandos elétricos: livro físico de 312 páginas, e-book em PDF com entrega imediata e bônus. R$ 119,90, frete grátis e garantia de 7 dias.",
+          "O manual definitivo para dominar comandos elétricos. Livro físico, e-book e bônus exclusivos por apenas R$ 119,90. Frete grátis e 7 dias de garantia.",
       },
-      { property: "og:title", content: "Manual Definitivo Comandos Elétricos | Livro + E-book e Bônus" },
+      { property: "og:title", content: "Manual Definitivo Comandos Elétricos | Domine com Segurança" },
       {
         property: "og:description",
         content:
-          "O manual definitivo para dominar comandos elétricos: livro físico de 312 páginas, e-book em PDF com entrega imediata e bônus. R$ 119,90, frete grátis e garantia de 7 dias.",
+          "O manual definitivo para dominar comandos elétricos. Livro físico, e-book e bônus exclusivos por apenas R$ 119,90. Frete grátis e 7 dias de garantia.",
       },
       { property: "og:type", content: "product" },
       { name: "twitter:card", content: "summary_large_image" },
