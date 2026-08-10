@@ -34,17 +34,17 @@ const CHECKOUT_URL = "#oferta";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Kit Comandos Elétricos | Livro + E-book e Bônus" },
+      { title: "Manual Definitivo Comandos Elétricos | Livro + E-book e Bônus" },
       {
         name: "description",
         content:
-          "O kit definitivo para dominar comandos elétricos: livro físico de 312 páginas, e-book em PDF com entrega imediata e bônus. R$ 119,90, frete grátis e garantia de 7 dias.",
+          "O manual definitivo para dominar comandos elétricos: livro físico de 312 páginas, e-book em PDF com entrega imediata e bônus. R$ 119,90, frete grátis e garantia de 7 dias.",
       },
-      { property: "og:title", content: "Kit Comandos Elétricos | Livro + E-book e Bônus" },
+      { property: "og:title", content: "Manual Definitivo Comandos Elétricos | Livro + E-book e Bônus" },
       {
         property: "og:description",
         content:
-          "O kit definitivo para dominar comandos elétricos: livro físico de 312 páginas, e-book em PDF com entrega imediata e bônus. R$ 119,90, frete grátis e garantia de 7 dias.",
+          "O manual definitivo para dominar comandos elétricos: livro físico de 312 páginas, e-book em PDF com entrega imediata e bônus. R$ 119,90, frete grátis e garantia de 7 dias.",
       },
       { property: "og:type", content: "product" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -205,7 +205,7 @@ const faqs = [
 /* -------------------------------- helpers -------------------------------- */
 
 function CTA({
-  children = "Quero o Kit Completo",
+  children = "Quero o Manual Completo",
   size = "lg",
   className = "",
 }: {
@@ -258,9 +258,9 @@ function Index() {
               <span className="text-accent">•</span> Livro físico + E-book + Bônus
             </SectionTag>
             <h1 className="mt-6 text-4xl font-extrabold leading-[1.05] sm:text-5xl lg:text-[3.4rem]">
-              O Kit Definitivo para{" "}
+              O Manual Definitivo para{" "}
               <span className="text-accent">Dominar Comandos Elétricos</span> — sem depender de
-              vídeo solto na internet.
+              conteúdos soltos na internet.
             </h1>
             <p className="mt-6 max-w-xl text-lg text-ink-foreground/75">
               312 páginas de manual técnico na sua bancada, o e-book oficial em PDF no seu celular
@@ -269,7 +269,7 @@ function Index() {
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <CTA>Quero o Kit por R$ 119,90</CTA>
+              <CTA>Quero o Manual por R$ 119,90</CTA>
               <span className="text-sm text-ink-foreground/70">
                 PIX com desconto · Frete grátis · 7 dias de garantia
               </span>
@@ -337,7 +337,7 @@ function Index() {
             className="w-full rounded-3xl border border-border bg-card shadow-[var(--shadow-lift)]"
           />
           <div>
-            <SectionTag>O kit</SectionTag>
+            <SectionTag>O manual</SectionTag>
             <h2 className="mt-5 text-3xl font-bold sm:text-4xl">
               Você não compra um livro. Você monta a sua bancada de estudo.
             </h2>
@@ -393,7 +393,7 @@ function Index() {
       <section className="bg-ink-gradient py-20 text-ink-foreground">
         <div className="mx-auto max-w-6xl px-5">
           <div className="max-w-2xl">
-            <SectionTag>Depois do kit</SectionTag>
+            <SectionTag>Depois do manual</SectionTag>
             <h2 className="mt-5 text-3xl font-bold sm:text-4xl">
               O que você vai ser capaz de fazer na próxima segunda-feira.
             </h2>
@@ -428,7 +428,7 @@ function Index() {
           <div className="grid grid-cols-[1fr_auto_auto] items-center gap-4 border-b border-border bg-secondary/70 px-5 py-4 text-xs font-bold uppercase tracking-wider sm:px-8">
             <span className="text-muted-foreground">Critério</span>
             <span className="w-20 text-center text-muted-foreground">Vídeos e apostilas</span>
-            <span className="w-20 text-center text-accent">O Kit</span>
+            <span className="w-20 text-center text-accent">O Manual</span>
           </div>
           {comparison.map(([label, a, b]) => (
             <div
