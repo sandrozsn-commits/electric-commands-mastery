@@ -34,13 +34,13 @@ const CHECKOUT_URL = "#oferta";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Manual Comandos Elétricos | Ligações, Dimensionamento e Defeitos" },
+      { title: "Guia Prático Comandos Elétricos | Ligações, Dimensionamento e Defeitos" },
       {
         name: "description",
         content:
           "Aprenda a Fazer Ligações, Regulagens, Dimensionamentos e Correção de Defeitos em Comandos Elétricos.",
       },
-      { property: "og:title", content: "Manual Comandos Elétricos | Ligações, Dimensionamento e Defeitos" },
+      { property: "og:title", content: "Guia Prático Comandos Elétricos | Ligações, Dimensionamento e Defeitos" },
       {
         property: "og:description",
         content:
@@ -74,7 +74,7 @@ const pains = [
 const manualAdvantages = [
   { icon: Zap, title: "Recebe agora", text: "O PDF cai no seu e-mail minutos após a compra." },
   { icon: Search, title: "Busca por palavra", text: "Digite “relé térmico” e vá direto ao ponto." },
-  { icon: Smartphone, title: "Consulta na obra", text: "Celular no bolso, manual inteiro na mão." },
+  { icon: Smartphone, title: "Consulta na obra", text: "Celular no bolso, guia inteiro na mão." },
   { icon: BookOpen, title: "Livro na bancada", text: "312 páginas impressas para estudar sem tela." },
 ];
 
@@ -217,7 +217,7 @@ const faqs = [
 /* -------------------------------- helpers -------------------------------- */
 
 function CTA({
-  children = "Quero o Manual Completo",
+  children = "Quero o Guia Prático Completo",
   size = "lg",
   className = "",
 }: {
@@ -398,7 +398,7 @@ function Index() {
             className="w-full rounded-3xl border border-border bg-card shadow-[var(--shadow-lift)]"
           />
           <div>
-            <SectionTag>O manual</SectionTag>
+            <SectionTag>O guia prático</SectionTag>
             <h2 className="mt-5 text-3xl font-bold sm:text-4xl">
               Você não compra um livro. Você monta a sua bancada de estudo.
             </h2>
@@ -407,7 +407,7 @@ function Index() {
               <strong className="text-foreground">
                 o e-book oficial em PDF já está no seu celular
               </strong>
-              . Você começa a estudar hoje e recebe o manual definitivo em poucos dias.
+              . Você começa a estudar hoje e recebe o guia prático definitivo em poucos dias.
             </p>
 
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
@@ -504,7 +504,7 @@ function Index() {
       <section className="bg-ink-gradient py-20 text-ink-foreground">
         <div className="mx-auto max-w-6xl px-5">
           <div className="max-w-2xl">
-            <SectionTag>Depois do manual</SectionTag>
+            <SectionTag>Depois do guia prático</SectionTag>
             <h2 className="mt-5 text-3xl font-bold sm:text-4xl">
               O que você vai ser capaz de fazer na próxima segunda-feira.
             </h2>
@@ -638,7 +638,7 @@ function Index() {
         <div className="mx-auto grid max-w-5xl gap-10 px-5 lg:grid-cols-[1.1fr_1fr] lg:items-center">
           <div>
             <SectionTag>O que você recebe</SectionTag>
-            <h2 className="mt-5 text-3xl font-bold sm:text-4xl">Tudo que entra no seu manual hoje.</h2>
+            <h2 className="mt-5 text-3xl font-bold sm:text-4xl">Tudo que entra no seu guia prático hoje.</h2>
             <ul className="mt-8 space-y-3">
               {included.map((i) => (
                 <li
@@ -675,7 +675,7 @@ function Index() {
                 <p className="text-sm font-bold text-foreground">CONDIÇÕES ESPECIAIS:</p>
                 <div className="mt-2 space-y-2">
                   <div className="flex items-center justify-between border-b border-border pb-2 text-sm">
-                    <span>Cartão ou Boleto</span>
+                    <span>Cartão de Crédito</span>
                     <span className="font-bold">12x de R$ 11,99</span>
                   </div>
                   <div className="flex items-center justify-between pt-1 text-sm">
@@ -807,7 +807,7 @@ function Index() {
           </span>
           <h2 className="mt-6 text-3xl font-bold sm:text-4xl">Seu risco é exatamente zero.</h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
-            Receba o manual, leia o e-book, folheie o livro. Se em até 7 dias você achar que o
+            Receba o guia prático, leia o e-book, folheie o livro. Se em até 7 dias você achar que o
             material não é o que esperava, envia um único e-mail para o suporte e devolvemos 100%
             do valor. Sem formulário, sem enrolação.
           </p>
@@ -896,7 +896,7 @@ function Index() {
           <div className="min-w-0">
             <p className="truncate text-sm font-bold text-accent">R$ 119,90 ou R$ 107,91 no PIX</p>
             <p className="truncate text-xs text-muted-foreground">
-              Manual Definitivo — Livro + E-book + Bônus
+              Guia Prático Definitivo — Livro + E-book + Bônus
             </p>
           </div>
           <CTA size="sm">QUERO MEU LIVRO</CTA>
