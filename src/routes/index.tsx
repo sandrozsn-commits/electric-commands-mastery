@@ -454,7 +454,7 @@ function Index() {
       {/* ----------------------------- VOLUME DE VENDAS --------------------- */}
       <section className="bg-secondary/30 py-16">
         <div className="mx-auto max-w-4xl px-5 text-center">
-          <SectionTag>Volume de vendas</SectionTag>
+          <SectionTag>Prova real</SectionTag>
           <div id="vendas-counter" className="mt-8">
             <h2 className="font-display text-5xl font-extrabold text-foreground sm:text-7xl">
               +{count.toLocaleString("pt-BR")}
