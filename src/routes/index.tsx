@@ -622,15 +622,16 @@ function Index() {
             className="w-full rounded-2xl border border-border bg-card shadow-[var(--shadow-lift)]"
           />
         </div>
-        <div className="mx-auto mt-12 grid max-w-6xl gap-4 px-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mx-auto mt-12 grid max-w-6xl gap-6 px-5 sm:grid-cols-2 lg:grid-cols-4">
           {internalPhotos.map((img, i) => (
-            <img
-              key={i}
-              src={img.src}
-              alt={img.alt}
-              loading="lazy"
-              className="w-full rounded-2xl border border-border bg-card shadow-[var(--shadow-lift)]"
-            />
+            <div key={i} className="aspect-[3/4] overflow-hidden rounded-2xl border border-border bg-card shadow-[var(--shadow-lift)]">
+              <img
+                src={img.src}
+                alt={img.alt}
+                loading="lazy"
+                className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
+              />
+            </div>
           ))}
         </div>
       </section>
