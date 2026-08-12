@@ -310,8 +310,8 @@ function Index() {
               Dispositivos, Diagramas e Motores Usados em Comandos Elétricos.
             </h1>
             <p className="mt-6 max-w-xl text-lg text-ink-foreground/75">
-              Aprenda a interpretar diagramas, dimensionar componentes e diagnosticar defeitos com
-              segurança. Guia completo para eletricistas, técnicos e estudantes.
+              O Guia Completo e Definitivo, usado por eletricistas, técnicos e estudantes que querem
+              dominar painéis, motores e diagramas de Comandos Elétricos.
             </p>
 
             <div className="mt-8">
