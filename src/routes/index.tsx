@@ -109,7 +109,7 @@ const comparison = [
   ["Conteúdo revisado e com registro ISBN", false, true],
   ["Consulta rápida no meio do serviço", false, true],
   ["Diagramas reais de indústria explicados", false, true],
-  ["Escrito por professor com 20 anos de sala", false, true],
+  ["Escrito por professor com 26 anos de sala", false, true],
   ["Funciona sem internet, na bancada", false, true],
 ];
 
@@ -439,7 +439,7 @@ function Index() {
               Livros vendidos
             </p>
             <p className="mx-auto mt-4 max-w-xl text-lg text-muted-foreground">
-              Milhares de eletricistas, técnicos e estudantes já escolheram o Manual Comandos Elétricos
+              Milhares de eletricistas, técnicos e estudantes já escolheram o Livro Comandos Elétricos
               como seu guia definitivo de campo.
             </p>
           </div>
@@ -538,7 +538,7 @@ function Index() {
         <div className="surface-card mt-10 overflow-hidden">
           <div className="grid grid-cols-[1fr_auto_auto] items-center gap-4 border-b border-border bg-secondary/70 px-5 py-4 text-xs font-bold uppercase tracking-wider sm:px-8">
             <span className="text-muted-foreground">Critério</span>
-            <span className="w-20 text-center text-muted-foreground">Vídeos e apostilas</span>
+            <span className="w-20 text-center text-muted-foreground">Conteúdos soltos</span>
             <span className="w-20 text-center text-accent">O Manual</span>
           </div>
           {comparison.map(([label, a, b]) => (
@@ -731,18 +731,18 @@ function Index() {
               className="w-full rounded-3xl border border-border bg-card object-cover shadow-[var(--shadow-lift)]"
             />
             <div className="absolute -bottom-6 -right-6 hidden rounded-2xl bg-accent p-6 text-white shadow-xl lg:block">
-              <p className="font-display text-3xl font-bold">20+</p>
+              <p className="font-display text-3xl font-bold">26+</p>
               <p className="text-xs font-bold uppercase tracking-wider">Anos de experiência</p>
             </div>
           </div>
           <div>
             <SectionTag>Autoridade</SectionTag>
             <h2 className="mt-5 text-3xl font-bold sm:text-4xl">
-              Sandro Zander: Vinte anos ensinando eletricidade industrial.
+              Sandro Zander: vinte e seis anos ensinando eletricidade industrial.
             </h2>
             <div className="mt-6 space-y-4 text-lg text-muted-foreground">
               <p>
-                Professor de eletricidade industrial há 20 anos, atuando no{" "}
+                Professor de eletricidade industrial há 26 anos, atuando no{" "}
                 <strong className="text-foreground">SENAI-RJ</strong> e na{" "}
                 <strong className="text-foreground">FAETEC-RJ</strong> nos cursos de Instalações
                 Elétricas, Manutenção Industrial, Comandos Elétricos, Automação Industrial e no curso
