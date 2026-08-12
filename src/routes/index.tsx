@@ -452,7 +452,7 @@ function Index() {
           <div className="text-center">
             <SectionTag>Quem já recebeu, aprova</SectionTag>
             <h2 className="mt-5 text-3xl font-bold sm:text-4xl">
-              Fotos reais do nosso manual pelo Brasil
+              Fotos reais do nosso Livro pelo Brasil
             </h2>
           </div>
           
@@ -757,7 +757,7 @@ function Index() {
                 unindo a didática de sala de aula com a necessidade prática do profissional.
               </p>
               <p className="border-l-2 border-accent pl-5 text-foreground italic">
-                “Escrevi este manual do jeito que eu explico no laboratório: mostrando o caminho da
+                “Escrevi este Livro do jeito que eu explico no laboratório: mostrando o caminho da
                 corrente, o motivo de cada dispositivo e o que fazer quando a máquina não parte.”
               </p>
             </div>
