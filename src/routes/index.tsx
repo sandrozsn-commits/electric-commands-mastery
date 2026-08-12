@@ -190,27 +190,27 @@ const testimonials = [
 const faqs = [
   {
     q: "O livro é físico mesmo ou só digital?",
-    a: "Os dois. Você recebe o livro impresso de 312 páginas em casa, com frete grátis, e o e-book oficial em PDF liberado imediatamente após a confirmação do pagamento.",
+    a: "Os dois. Você recebe o livro físico impresso e também o E-book em PDF para acessar pelo celular, tablet ou computador.",
   },
   {
     q: "Quanto tempo demora a entrega?",
-    a: "O PDF chega em minutos por e-mail. O livro impresso costuma chegar em até 10 dias úteis, para todo o Brasil.",
+    a: "O prazo de entrega varia de acordo com a região. Após a confirmação da compra, você receberá as informações de acompanhamento da entrega.",
   },
   {
     q: "Serve para quem está começando?",
-    a: "Sim. A sequência vai do básico ao avançado com linguagem simples, sem fórmula solta e sem pular etapas. Também serve como consulta para quem já é da área.",
+    a: "Sim. O conteúdo foi organizado de forma progressiva para ajudar quem está começando e também servir como material de consulta para quem já trabalha com eletricidade e manutenção.",
   },
   {
     q: "Preciso de conhecimento em matemática avançada?",
-    a: "Não. Os dimensionamentos são resolvidos com contas diretas e tabelas prontas, do jeito que se usa no campo.",
+    a: "Não. O conteúdo prioriza a aplicação prática dos conceitos de comandos elétricos. Os cálculos necessários são apresentados de forma didática ao longo do material.",
   },
   {
     q: "Como funciona o pagamento?",
-    a: "Cartão, boleto ou PIX. No PIX você paga com desconto e o acesso ao PDF é liberado assim que o pagamento é confirmado.",
+    a: "Você pode pagar no cartão de crédito em até 12x de R$11,99 ou escolher o pagamento via PIX por R$107,91, com 10% de desconto.",
   },
   {
     q: "E se eu não gostar?",
-    a: "Você tem 7 dias de garantia. Basta um e-mail para o suporte e devolvemos 100% do valor, sem discussão.",
+    a: "Você conta com a garantia de 7 dias apresentada na oferta.",
   },
 ];
 
