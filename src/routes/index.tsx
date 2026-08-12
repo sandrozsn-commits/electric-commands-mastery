@@ -439,7 +439,7 @@ function Index() {
               Livros vendidos
             </p>
             <p className="mx-auto mt-4 max-w-xl text-lg text-muted-foreground">
-              Milhares de eletricistas, técnicos e estudantes já escolheram o Manual Comandos Elétricos
+              Milhares de eletricistas, técnicos e estudantes já escolheram o Livro Comandos Elétricos
               como seu guia definitivo de campo.
             </p>
           </div>
