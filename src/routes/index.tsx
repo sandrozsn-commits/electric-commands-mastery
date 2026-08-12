@@ -539,7 +539,7 @@ function Index() {
           <div className="grid grid-cols-[1fr_auto_auto] items-center gap-4 border-b border-border bg-secondary/70 px-5 py-4 text-xs font-bold uppercase tracking-wider sm:px-8">
             <span className="text-muted-foreground">Critério</span>
             <span className="w-20 text-center text-muted-foreground">Conteúdos soltos</span>
-            <span className="w-20 text-center text-accent">O Manual</span>
+            <span className="w-20 text-center text-accent">O LIVRO</span>
           </div>
           {comparison.map(([label, a, b]) => (
             <div
