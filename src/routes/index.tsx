@@ -415,8 +415,8 @@ function Index() {
       <section className="bg-secondary/60 py-20">
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 lg:grid-cols-2">
           <img
-            src={pageContator.url}
-            alt="Página interna do livro sobre contatores, com construção e aplicação em painéis"
+            src={internalPresentation33.url}
+            alt="Página interna do livro sobre proteção, fusíveis e dimensionamento"
             width={716}
             height={950}
             loading="lazy"
