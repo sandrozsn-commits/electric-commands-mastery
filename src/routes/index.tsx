@@ -305,10 +305,9 @@ function Index() {
             <SectionTag>
               <span className="text-accent">•</span> Livro físico + E-book + Bônus
             </SectionTag>
-            <h1 className="mt-6 text-4xl font-extrabold leading-[1.05] sm:text-5xl lg:text-[3.4rem]">
-              O Manual Definitivo para{" "}
-              <span className="text-accent">Dominar Comandos Elétricos</span> - sem depender de
-              conteúdos soltos na internet.
+            <h1 className="mt-6 text-4xl font-extrabold leading-[1.05] sm:text-5xl lg:text-[2.8rem]">
+              Aprenda Como Fazer Ligações, Regulagens, Dimensionamentos e Correção de Defeitos dos
+              Dispositivos, Diagramas e Motores Usados em Comandos Elétricos.
             </h1>
             <p className="mt-6 max-w-xl text-lg text-ink-foreground/75">
               Aprenda a interpretar diagramas, dimensionar componentes e diagnosticar defeitos com
