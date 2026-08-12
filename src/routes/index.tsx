@@ -876,6 +876,14 @@ function Index() {
           <p>Academia do Eletricista</p>
           <p>Instituto Brasileiro de Qualificação Profissional Ltda - ME</p>
           <p>CNPJ: 10.984.548/0001-77</p>
+          <div className="mt-6 flex flex-wrap justify-center gap-x-6 gap-y-2 font-medium underline-offset-4">
+            <a href="#" className="hover:text-foreground hover:underline">
+              Termos de Uso
+            </a>
+            <a href="#" className="hover:text-foreground hover:underline">
+              Política de Privacidade
+            </a>
+          </div>
         </div>
       </footer>
 
