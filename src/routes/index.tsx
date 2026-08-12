@@ -610,7 +610,7 @@ function Index() {
         <div className="max-w-2xl">
           <SectionTag>Bônus inclusos</SectionTag>
           <h2 className="mt-5 text-3xl font-bold sm:text-4xl">
-            Quatro materiais que sozinhos já valem mais que o manual.
+            3 BÔNUS EXCLUSIVOS PARA ACELERAR SEU APRENDIZADO
           </h2>
         </div>
         <div className="mt-10 grid gap-5 sm:grid-cols-2">
