@@ -471,10 +471,7 @@ function Index() {
                   height={533}
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
-                <div className="absolute bottom-4 left-4 right-4 translate-y-2 opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100">
-                  <p className="text-[10px] font-bold text-white uppercase tracking-wider">{img.alt}</p>
-                </div>
+                <div className="absolute inset-0 bg-black/10 opacity-0 transition-opacity group-hover:opacity-100" />
               </div>
             ))}
           </div>
