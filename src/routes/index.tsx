@@ -462,14 +462,14 @@ function Index() {
           
           <div className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-4">
             {realSocialProof.map((img, i) => (
-              <div key={i} className="group relative aspect-[3/4] overflow-hidden rounded-2xl bg-secondary">
+              <div key={i} className="group relative overflow-hidden rounded-2xl bg-secondary">
                 <img
                   src={img.src}
                   alt={img.alt}
                   loading="lazy"
                   width={400}
                   height={533}
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="h-auto w-full object-contain transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-black/10 opacity-0 transition-opacity group-hover:opacity-100" />
               </div>
