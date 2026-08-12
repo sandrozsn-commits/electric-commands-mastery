@@ -742,7 +742,7 @@ function Index() {
             </h2>
             <div className="mt-6 space-y-4 text-lg text-muted-foreground">
               <p>
-                Professor de eletricidade industrial há 20 anos, atuando no{" "}
+                Professor de eletricidade industrial há 26 anos, atuando no{" "}
                 <strong className="text-foreground">SENAI-RJ</strong> e na{" "}
                 <strong className="text-foreground">FAETEC-RJ</strong> nos cursos de Instalações
                 Elétricas, Manutenção Industrial, Comandos Elétricos, Automação Industrial e no curso
