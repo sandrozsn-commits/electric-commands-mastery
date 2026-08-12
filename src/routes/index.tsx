@@ -38,13 +38,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Aprenda Como Fazer Ligações, Regulagens, Dimensionamentos e Correção de Defeitos dos Dispositivos, Diagramas e Motores Usados em Comandos Elétricos.",
+          "Aprenda a Fazer Ligações, Regulagens, Dimensionamentos e Correção de Defeitos em Comandos Elétricos.",
       },
       { property: "og:title", content: "Manual Comandos Elétricos | Ligações, Dimensionamento e Defeitos" },
       {
         property: "og:description",
         content:
-          "Aprenda Como Fazer Ligações, Regulagens, Dimensionamentos e Correção de Defeitos dos Dispositivos, Diagramas e Motores Usados em Comandos Elétricos.",
+          "Aprenda a Fazer Ligações, Regulagens, Dimensionamentos e Correção de Defeitos em Comandos Elétricos.",
       },
       { property: "og:type", content: "product" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -306,8 +306,8 @@ function Index() {
               <span className="text-accent">•</span> Livro físico + E-book + Bônus
             </SectionTag>
             <h1 className="mt-6 text-4xl font-extrabold leading-[1.05] sm:text-5xl lg:text-[2.8rem]">
-              Aprenda Como Fazer Ligações, Regulagens, Dimensionamentos e Correção de Defeitos dos
-              Dispositivos, Diagramas e Motores Usados em Comandos Elétricos.
+              Aprenda a Fazer Ligações, Regulagens, Dimensionamentos e Correção de Defeitos em Comandos
+              Elétricos.
             </h1>
             <p className="mt-6 max-w-xl text-lg text-ink-foreground/75">
               O Guia Completo e Definitivo, usado por eletricistas, técnicos e estudantes que querem
