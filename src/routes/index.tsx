@@ -454,7 +454,7 @@ function Index() {
       {/* ----------------------------- VOLUME DE VENDAS --------------------- */}
       <section className="bg-secondary/30 py-16">
         <div className="mx-auto max-w-4xl px-5 text-center">
-          <SectionTag>Volume de vendas</SectionTag>
+          <SectionTag>Prova real</SectionTag>
           <div id="vendas-counter" className="mt-8">
             <h2 className="font-display text-5xl font-extrabold text-foreground sm:text-7xl">
               +{count.toLocaleString("pt-BR")}
@@ -501,7 +501,7 @@ function Index() {
       {/* ----------------------------- BENEFÍCIOS --------------------------- */}
       <section className="mx-auto max-w-6xl px-5 py-20">
         <div className="max-w-2xl">
-          <SectionTag>Conteúdo</SectionTag>
+          <SectionTag>O que está dentro do Guia</SectionTag>
           <h2 className="mt-5 text-3xl font-bold sm:text-4xl">
             Tudo que um comando elétrico exige — reunido em um só material.
           </h2>
@@ -550,7 +550,7 @@ function Index() {
       {/* ----------------------------- COMPARAÇÃO --------------------------- */}
       <section className="mx-auto max-w-5xl px-5 py-20">
         <div className="max-w-2xl">
-          <SectionTag>Comparativo</SectionTag>
+          <SectionTag>A diferença na prática</SectionTag>
           <h2 className="mt-5 text-3xl font-bold sm:text-4xl">
             Por que este material é diferente do que você já tentou.
           </h2>
@@ -637,7 +637,7 @@ function Index() {
       {/* ------------------------------- BÔNUS ------------------------------ */}
       <section className="mx-auto max-w-6xl px-5 py-20">
         <div className="max-w-2xl">
-          <SectionTag>Bônus inclusos</SectionTag>
+          <SectionTag>Bônus para acelerar</SectionTag>
           <h2 className="mt-5 text-3xl font-bold sm:text-4xl">
             3 BÔNUS EXCLUSIVOS PARA ACELERAR SEU APRENDIZADO
           </h2>
@@ -667,7 +667,7 @@ function Index() {
       <section id="oferta" className="bg-ink-gradient py-20 text-ink-foreground">
         <div className="mx-auto grid max-w-5xl gap-10 px-5 lg:grid-cols-[1.1fr_1fr] lg:items-center">
           <div>
-            <SectionTag>O que você recebe</SectionTag>
+            <SectionTag>Seu pacote completo</SectionTag>
             <h2 className="mt-5 text-3xl font-bold sm:text-4xl">Tudo que entra no seu guia prático hoje.</h2>
             <ul className="mt-8 space-y-3">
               {included.map((i) => (
@@ -766,7 +766,7 @@ function Index() {
             </div>
           </div>
           <div>
-            <SectionTag>Autoridade</SectionTag>
+            <SectionTag>Quem escreveu</SectionTag>
             <h2 className="mt-5 text-3xl font-bold sm:text-4xl">
               Sandro Zander: vinte e seis anos ensinando eletricidade industrial.
             </h2>
