@@ -34,17 +34,17 @@ const CHECKOUT_URL = "#oferta";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Manual Definitivo Comandos Elétricos | Domine com Segurança" },
+      { title: "Manual Comandos Elétricos | Ligações, Dimensionamento e Defeitos" },
       {
         name: "description",
         content:
-          "O manual definitivo para dominar comandos elétricos. Livro físico, e-book e bônus exclusivos por apenas R$ 119,90. Frete grátis e 7 dias de garantia.",
+          "Aprenda Como Fazer Ligações, Regulagens, Dimensionamentos e Correção de Defeitos dos Dispositivos, Diagramas e Motores Usados em Comandos Elétricos.",
       },
-      { property: "og:title", content: "Manual Definitivo Comandos Elétricos | Domine com Segurança" },
+      { property: "og:title", content: "Manual Comandos Elétricos | Ligações, Dimensionamento e Defeitos" },
       {
         property: "og:description",
         content:
-          "O manual definitivo para dominar comandos elétricos. Livro físico, e-book e bônus exclusivos por apenas R$ 119,90. Frete grátis e 7 dias de garantia.",
+          "Aprenda Como Fazer Ligações, Regulagens, Dimensionamentos e Correção de Defeitos dos Dispositivos, Diagramas e Motores Usados em Comandos Elétricos.",
       },
       { property: "og:type", content: "product" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -305,10 +305,9 @@ function Index() {
             <SectionTag>
               <span className="text-accent">•</span> Livro físico + E-book + Bônus
             </SectionTag>
-            <h1 className="mt-6 text-4xl font-extrabold leading-[1.05] sm:text-5xl lg:text-[3.4rem]">
-              O Manual Definitivo para{" "}
-              <span className="text-accent">Dominar Comandos Elétricos</span> - sem depender de
-              conteúdos soltos na internet.
+            <h1 className="mt-6 text-4xl font-extrabold leading-[1.05] sm:text-5xl lg:text-[2.8rem]">
+              Aprenda Como Fazer Ligações, Regulagens, Dimensionamentos e Correção de Defeitos dos
+              Dispositivos, Diagramas e Motores Usados em Comandos Elétricos.
             </h1>
             <p className="mt-6 max-w-xl text-lg text-ink-foreground/75">
               Aprenda a interpretar diagramas, dimensionar componentes e diagnosticar defeitos com
