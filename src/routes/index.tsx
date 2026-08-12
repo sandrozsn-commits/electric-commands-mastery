@@ -32,6 +32,14 @@ import zap1 from "@/assets/zap_1.webp.asset.json";
 import zap3 from "@/assets/zap_3.webp.asset.json";
 import zap5 from "@/assets/zap_5.webp.asset.json";
 import zap6 from "@/assets/zap_6.webp.asset.json";
+import internal4 from "@/assets/internal_4.png.asset.json";
+import internal7 from "@/assets/internal_7.png.asset.json";
+import internal9 from "@/assets/internal_9.png.asset.json";
+import internal16 from "@/assets/internal_16.png.asset.json";
+import internal17 from "@/assets/internal_17.png.asset.json";
+import internal19 from "@/assets/internal_19.png.asset.json";
+import internal25 from "@/assets/internal_25.png.asset.json";
+import internalFoto3 from "@/assets/internal_foto_3.png.asset.json";
 
 const CHECKOUT_URL = "#oferta";
 
@@ -166,6 +174,17 @@ const realSocialProof = [
     src: zap6.url,
     alt: "Detalhe das páginas do Livro - zap 6",
   },
+];
+
+const internalPhotos = [
+  { src: internal4.url, alt: "Diagramas - Chaves de partidas de motores" },
+  { src: internal7.url, alt: "Chave Estrela-Triângulo Automática com Reversão" },
+  { src: internal9.url, alt: "Redes e Ramais - Análise de Defeitos" },
+  { src: internal16.url, alt: "Motores Elétricos - Motor Monofásico passo a passo" },
+  { src: internal17.url, alt: "Motores Elétricos - Motor Trifásico e Placa de Identificação" },
+  { src: internal19.url, alt: "Dispositivos de Comandos Elétricos - Relé Térmico" },
+  { src: internal25.url, alt: "Simbologias de Bobinas e Contatos" },
+  { src: internalFoto3.url, alt: "Inversores de Frequência - Parametrização" },
 ];
 
 const testimonials = [
@@ -594,14 +613,28 @@ function Index() {
               ))}
             </ul>
           </div>
-          <img
-            src={pageDiagramas.url}
-            alt="Página do livro com diagrama de chave de partida sequencial de motores com proteção individual"
-            width={716}
-            height={950}
-            loading="lazy"
-            className="w-full rounded-3xl border border-border bg-card shadow-[var(--shadow-lift)]"
-          />
+          <div className="grid grid-cols-2 gap-4">
+            {internalPhotos.slice(0, 4).map((img, i) => (
+              <img
+                key={i}
+                src={img.src}
+                alt={img.alt}
+                loading="lazy"
+                className="w-full rounded-2xl border border-border bg-card shadow-[var(--shadow-lift)]"
+              />
+            ))}
+          </div>
+        </div>
+        <div className="mx-auto mt-12 grid max-w-6xl gap-4 px-5 sm:grid-cols-2 lg:grid-cols-4">
+          {internalPhotos.slice(4).map((img, i) => (
+            <img
+              key={i}
+              src={img.src}
+              alt={img.alt}
+              loading="lazy"
+              className="w-full rounded-2xl border border-border bg-card shadow-[var(--shadow-lift)]"
+            />
+          ))}
         </div>
       </section>
 
