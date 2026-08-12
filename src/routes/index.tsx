@@ -637,7 +637,7 @@ function Index() {
       {/* ------------------------------- BÔNUS ------------------------------ */}
       <section className="mx-auto max-w-6xl px-5 py-20">
         <div className="max-w-2xl">
-          <SectionTag>Bônus inclusos</SectionTag>
+          <SectionTag>Bônus para acelerar</SectionTag>
           <h2 className="mt-5 text-3xl font-bold sm:text-4xl">
             3 BÔNUS EXCLUSIVOS PARA ACELERAR SEU APRENDIZADO
           </h2>
