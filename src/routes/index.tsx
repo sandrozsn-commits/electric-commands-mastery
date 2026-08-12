@@ -667,7 +667,7 @@ function Index() {
       <section id="oferta" className="bg-ink-gradient py-20 text-ink-foreground">
         <div className="mx-auto grid max-w-5xl gap-10 px-5 lg:grid-cols-[1.1fr_1fr] lg:items-center">
           <div>
-            <SectionTag>O que você recebe</SectionTag>
+            <SectionTag>Seu pacote completo</SectionTag>
             <h2 className="mt-5 text-3xl font-bold sm:text-4xl">Tudo que entra no seu guia prático hoje.</h2>
             <ul className="mt-8 space-y-3">
               {included.map((i) => (
