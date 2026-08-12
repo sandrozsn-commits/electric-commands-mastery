@@ -40,6 +40,7 @@ import internal17 from "@/assets/internal_17.png.asset.json";
 import internal19 from "@/assets/internal_19.png.asset.json";
 import internal25 from "@/assets/internal_25.png.asset.json";
 import internalFoto3 from "@/assets/internal_foto_3.png.asset.json";
+import internalCoverHero from "@/assets/internal_cover_hero.png.asset.json";
 
 const CHECKOUT_URL = "#oferta";
 
@@ -613,20 +614,15 @@ function Index() {
               ))}
             </ul>
           </div>
-          <div className="grid grid-cols-2 gap-4">
-            {internalPhotos.slice(0, 4).map((img, i) => (
-              <img
-                key={i}
-                src={img.src}
-                alt={img.alt}
-                loading="lazy"
-                className="w-full rounded-2xl border border-border bg-card shadow-[var(--shadow-lift)]"
-              />
-            ))}
-          </div>
+          <img
+            src={internalCoverHero.url}
+            alt="Foto do Livro Comandos Elétricos"
+            loading="lazy"
+            className="w-full rounded-2xl border border-border bg-card shadow-[var(--shadow-lift)]"
+          />
         </div>
         <div className="mx-auto mt-12 grid max-w-6xl gap-4 px-5 sm:grid-cols-2 lg:grid-cols-4">
-          {internalPhotos.slice(4).map((img, i) => (
+          {internalPhotos.map((img, i) => (
             <img
               key={i}
               src={img.src}
