@@ -550,7 +550,7 @@ function Index() {
       {/* ----------------------------- COMPARAÇÃO --------------------------- */}
       <section className="mx-auto max-w-5xl px-5 py-20">
         <div className="max-w-2xl">
-          <SectionTag>Comparativo</SectionTag>
+          <SectionTag>A diferença na prática</SectionTag>
           <h2 className="mt-5 text-3xl font-bold sm:text-4xl">
             Por que este material é diferente do que você já tentou.
           </h2>
