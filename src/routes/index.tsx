@@ -501,7 +501,7 @@ function Index() {
       {/* ----------------------------- BENEFÍCIOS --------------------------- */}
       <section className="mx-auto max-w-6xl px-5 py-20">
         <div className="max-w-2xl">
-          <SectionTag>Conteúdo</SectionTag>
+          <SectionTag>O que está dentro do Guia</SectionTag>
           <h2 className="mt-5 text-3xl font-bold sm:text-4xl">
             Tudo que um comando elétrico exige — reunido em um só material.
           </h2>
