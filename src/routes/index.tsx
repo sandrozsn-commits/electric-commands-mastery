@@ -34,17 +34,17 @@ const CHECKOUT_URL = "#oferta";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Manual Definitivo Comandos Elétricos | Domine com Segurança" },
+      { title: "Manual Comandos Elétricos | Ligações, Dimensionamento e Defeitos" },
       {
         name: "description",
         content:
-          "O manual definitivo para dominar comandos elétricos. Livro físico, e-book e bônus exclusivos por apenas R$ 119,90. Frete grátis e 7 dias de garantia.",
+          "Aprenda Como Fazer Ligações, Regulagens, Dimensionamentos e Correção de Defeitos dos Dispositivos, Diagramas e Motores Usados em Comandos Elétricos.",
       },
-      { property: "og:title", content: "Manual Definitivo Comandos Elétricos | Domine com Segurança" },
+      { property: "og:title", content: "Manual Comandos Elétricos | Ligações, Dimensionamento e Defeitos" },
       {
         property: "og:description",
         content:
-          "O manual definitivo para dominar comandos elétricos. Livro físico, e-book e bônus exclusivos por apenas R$ 119,90. Frete grátis e 7 dias de garantia.",
+          "Aprenda Como Fazer Ligações, Regulagens, Dimensionamentos e Correção de Defeitos dos Dispositivos, Diagramas e Motores Usados em Comandos Elétricos.",
       },
       { property: "og:type", content: "product" },
       { name: "twitter:card", content: "summary_large_image" },
