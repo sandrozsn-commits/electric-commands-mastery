@@ -109,7 +109,7 @@ const comparison = [
   ["Conteúdo revisado e com registro ISBN", false, true],
   ["Consulta rápida no meio do serviço", false, true],
   ["Diagramas reais de indústria explicados", false, true],
-  ["Escrito por professor com 20 anos de sala", false, true],
+  ["Escrito por professor com 26 anos de sala", false, true],
   ["Funciona sem internet, na bancada", false, true],
 ];
 
