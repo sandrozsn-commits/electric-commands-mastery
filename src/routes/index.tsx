@@ -686,6 +686,11 @@ function Index() {
                 </div>
               </div>
 
+              <div className="text-center">
+                <p className="text-[13px] font-bold text-accent mb-2">🔥 POUCAS UNIDADES EM ESTOQUE</p>
+                <p className="text-[11px] font-medium text-muted-foreground mb-4">Garanta seu exemplar enquanto houver disponibilidade.</p>
+              </div>
+
               <CTA className="w-full">QUERO MEU LIVRO + BÔNUS</CTA>
               <p className="text-center text-xs font-medium text-muted-foreground">
                 12x de R$ 11,99 • PIX R$ 107,91 • Frete grátis
