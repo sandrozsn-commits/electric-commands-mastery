@@ -28,6 +28,10 @@ import bookCover from "@/assets/book-cover.png.asset.json";
 import pageContator from "@/assets/page-contator.jpg.asset.json";
 import pageDiagramas from "@/assets/page-diagramas.jpg.asset.json";
 import authorPhoto from "@/assets/author-real.jpg.asset.json";
+import zap1 from "@/assets/zap_1.webp.asset.json";
+import zap3 from "@/assets/zap_3.webp.asset.json";
+import zap5 from "@/assets/zap_5.webp.asset.json";
+import zap6 from "@/assets/zap_6.webp.asset.json";
 
 const CHECKOUT_URL = "#oferta";
 
@@ -147,20 +151,20 @@ const bonuses = [
 
 const realSocialProof = [
   {
-    src: "https://livrocomandoseletricos.com.br//franquias/2/343088/editor-html/12290977.png",
-    alt: "Eletricista recebendo o Manual Comandos Elétricos",
+    src: zap1.url,
+    alt: "Eletricista recebendo o Livro Comandos Elétricos - zap 1",
   },
   {
-    src: "https://livrocomandoseletricos.com.br//franquias/2/343088/editor-html/12290977.png",
-    alt: "Cliente satisfeito com o livro físico",
+    src: zap3.url,
+    alt: "Cliente satisfeito com o livro físico - zap 3",
   },
   {
-    src: "https://livrocomandoseletricos.com.br//franquias/2/343088/editor-html/12290977.png",
-    alt: "Manual na bancada de trabalho",
+    src: zap5.url,
+    alt: "Livro na bancada de trabalho - zap 5",
   },
   {
-    src: "https://livrocomandoseletricos.com.br//franquias/2/343088/editor-html/12290977.png",
-    alt: "Detalhe das páginas do Manual",
+    src: zap6.url,
+    alt: "Detalhe das páginas do Livro - zap 6",
   },
 ];
 
