@@ -766,7 +766,7 @@ function Index() {
             </div>
           </div>
           <div>
-            <SectionTag>Autoridade</SectionTag>
+            <SectionTag>Quem escreveu</SectionTag>
             <h2 className="mt-5 text-3xl font-bold sm:text-4xl">
               Sandro Zander: vinte e seis anos ensinando eletricidade industrial.
             </h2>
