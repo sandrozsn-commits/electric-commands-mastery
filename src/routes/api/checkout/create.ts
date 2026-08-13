@@ -102,17 +102,20 @@ export const Route = createFileRoute('/api/checkout/create')({
             }]
           }
 
+          const checkout = mockPagarmeResponse.checkouts[0]
+          if (!checkout) throw new Error('Falha ao gerar checkout no Pagar.me')
+
           // Update order with external IDs
           await supabaseAdmin
             .from('orders')
             .update({
               pagarme_order_id: mockPagarmeResponse.id,
-              pagarme_checkout_id: mockPagarmeResponse.checkouts[0].id,
-              pagarme_checkout_url: mockPagarmeResponse.checkouts[0].payment_url
+              pagarme_checkout_id: checkout.id,
+              pagarme_checkout_url: checkout.payment_url
             })
             .eq('id', order.id)
 
-          return new Response(JSON.stringify({ checkout_url: mockPagarmeResponse.checkouts[0].payment_url }), {
+          return new Response(JSON.stringify({ checkout_url: checkout.payment_url }), {
             headers: { 'Content-Type': 'application/json' }
           })
 
