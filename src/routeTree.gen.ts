@@ -11,6 +11,8 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CheckoutRouteImport } from './routes/checkout'
+import { Route as ApiCheckoutCreateRouteImport } from './routes/api/checkout/create'
+import { Route as ApiPublicPagarmeWebhookRouteImport } from './routes/api/public/pagarme-webhook'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -22,31 +24,55 @@ const CheckoutRoute = CheckoutRouteImport.update({
   path: '/checkout',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiCheckoutCreateRoute = ApiCheckoutCreateRouteImport.update({
+  id: '/api/checkout/create',
+  path: '/api/checkout/create',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicPagarmeWebhookRoute = ApiPublicPagarmeWebhookRouteImport.update({
+  id: '/api/public/pagarme-webhook',
+  path: '/api/public/pagarme-webhook',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/checkout': typeof CheckoutRoute
+  '/api/checkout/create': typeof ApiCheckoutCreateRoute
+  '/api/public/pagarme-webhook': typeof ApiPublicPagarmeWebhookRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/checkout': typeof CheckoutRoute
+  '/api/checkout/create': typeof ApiCheckoutCreateRoute
+  '/api/public/pagarme-webhook': typeof ApiPublicPagarmeWebhookRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/checkout': typeof CheckoutRoute
+  '/api/checkout/create': typeof ApiCheckoutCreateRoute
+  '/api/public/pagarme-webhook': typeof ApiPublicPagarmeWebhookRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/checkout'
+  fullPaths:
+    '/' | '/checkout' | '/api/checkout/create' | '/api/public/pagarme-webhook'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/checkout'
-  id: '__root__' | '/' | '/checkout'
+  to: '/' | '/checkout' | '/api/checkout/create' | '/api/public/pagarme-webhook'
+  id:
+    | '__root__'
+    | '/'
+    | '/checkout'
+    | '/api/checkout/create'
+    | '/api/public/pagarme-webhook'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CheckoutRoute: typeof CheckoutRoute
+  ApiCheckoutCreateRoute: typeof ApiCheckoutCreateRoute
+  ApiPublicPagarmeWebhookRoute: typeof ApiPublicPagarmeWebhookRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -65,12 +91,28 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CheckoutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/checkout/create': {
+      id: '/api/checkout/create'
+      path: '/api/checkout/create'
+      fullPath: '/api/checkout/create'
+      preLoaderRoute: typeof ApiCheckoutCreateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/pagarme-webhook': {
+      id: '/api/public/pagarme-webhook'
+      path: '/api/public/pagarme-webhook'
+      fullPath: '/api/public/pagarme-webhook'
+      preLoaderRoute: typeof ApiPublicPagarmeWebhookRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CheckoutRoute: CheckoutRoute,
+  ApiCheckoutCreateRoute: ApiCheckoutCreateRoute,
+  ApiPublicPagarmeWebhookRoute: ApiPublicPagarmeWebhookRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
