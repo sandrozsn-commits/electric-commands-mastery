@@ -20,21 +20,27 @@ export const useCheckoutStore = create<CheckoutState>((set, get) => ({
   orderBumps: [],
   selectedBumpIds: [],
   sessionId: null,
-  isLoading: true,
+  isLoading: false, // Start as false to avoid early hydration skeleton
   error: null,
 
   initCheckout: async () => {
+    // If already loading or already initialized, don't re-init
+    if (get().isLoading || get().sessionId) return;
+    
     set({ isLoading: true, error: null });
     try {
+      console.log("Store: Fetching products and bumps...");
       const [mainProduct, orderBumps] = await Promise.all([
         productService.getMainProduct(),
         productService.getOrderBumps(),
       ]);
+      
+      console.log("Store: Products fetched:", { mainProduct, bumpsCount: orderBumps.length });
 
       // Create initial session
       const session = await checkoutService.createSession({
         selected_product_ids: [mainProduct.id],
-        source: window.location.search.includes('source') 
+        source: typeof window !== 'undefined' && window.location.search.includes('source') 
           ? new URLSearchParams(window.location.search).get('source')
           : null,
       });
@@ -48,7 +54,7 @@ export const useCheckoutStore = create<CheckoutState>((set, get) => ({
       
       await checkoutService.logEvent(session.id, 'checkout_viewed');
     } catch (err: any) {
-      console.error("Failed to init checkout:", err);
+      console.error("Store: Failed to init checkout:", err);
       set({ error: err.message, isLoading: false });
     }
   },
