@@ -28,7 +28,6 @@ function CheckoutSkeleton() {
   );
 }
 
-
 export function CheckoutPage() {
   const { 
     mainProduct, 
@@ -41,9 +40,8 @@ export function CheckoutPage() {
     initCheckout 
   } = useCheckoutStore();
 
-  console.log("Order Bumps state:", orderBumps);
-
   useEffect(() => {
+    console.log("CheckoutPage: Component mounted, calling initCheckout");
     initCheckout();
   }, [initCheckout]);
 
@@ -53,7 +51,7 @@ export function CheckoutPage() {
     });
   };
 
-  if (isLoading) {
+  if (isLoading && !mainProduct) {
     return (
       <div className="min-h-screen bg-slate-50">
         <header className="bg-white border-b h-16 flex items-center px-4">
@@ -203,7 +201,7 @@ export function CheckoutPage() {
                   );
                 })}
 
-                {orderBumps.length === 0 && (
+                {orderBumps.length === 0 && !isLoading && (
                   <div className="p-8 text-center border-2 border-dashed border-slate-200 rounded-xl bg-white/50 text-slate-400">
                     Nenhuma oferta especial disponível no momento.
                   </div>
