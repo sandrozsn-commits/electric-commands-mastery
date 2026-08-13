@@ -3,19 +3,10 @@ import { Database } from "@/integrations/supabase/types";
 
 export type Product = Database["public"]["Tables"]["products"]["Row"];
 export type OrderBump = Database["public"]["Tables"]["order_bumps"]["Row"] & {
-  product: Product;
+  product?: Product;
 };
 
 export const productService = {
-  async getProducts() {
-    const { data, error } = await supabase
-      .from("products")
-      .select("*")
-      .eq("is_active", true);
-    if (error) throw error;
-    return data;
-  },
-
   async getMainProduct() {
     const { data, error } = await supabase
       .from("products")
@@ -37,7 +28,7 @@ export const productService = {
       .eq("is_active", true)
       .order("display_order", { ascending: true });
     if (error) throw error;
-    return data as OrderBump[];
+    return data as any as OrderBump[];
   },
 };
 
@@ -74,6 +65,26 @@ export const checkoutService = {
       product_id: productId ?? null,
       metadata,
     });
-    if (error) console.error("Error logging checkout event:", error);
+    if (error) console.error("Error logging event:", error);
+  },
+
+  async createPagarmeCheckout(params: {
+    session_token: string;
+    selected_product_ids: string[];
+    customer: {
+      name: string;
+      email: string;
+      phone: string;
+    };
+  }) {
+    const response = await fetch('/api/checkout/create', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(params),
+    });
+
+    const data = await response.json();
+    if (!response.ok) throw new Error(data.error || 'Falha ao criar checkout');
+    return data as { checkout_url: string };
   },
 };
