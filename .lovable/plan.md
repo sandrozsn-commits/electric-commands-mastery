@@ -24,10 +24,13 @@ Este plano detalha a criação de um sistema de checkout próprio integrado ao P
 - [x] Integrar CTAs da Landing Page para a nova rota.
 
 ### Fase 2: Banco de Dados e Supabase
-- [ ] Criar tabelas no Supabase: `products`, `order_bumps`, `orders`, `order_items`, `checkout_sessions`.
-- [ ] Configurar RLS (Row Level Security) e permissões.
-- [ ] Popular banco com produtos iniciais (Livro + 3 Bumps).
-- [ ] Criar índices para performance em consultas de checkout.
+- [x] Criar tabelas no Supabase: `products`, `order_bumps`, `orders`, `order_items`, `checkout_sessions`, `checkout_events`.
+- [x] Configurar RLS (Row Level Security) e permissões.
+- [x] Popular banco com produtos iniciais (Livro + 3 Bumps).
+- [x] Criar índices para performance em consultas de checkout.
+- [x] Implementar `productService` e `checkoutService` integrados ao banco.
+- [x] Atualizar `useCheckoutStore` para consumir dados reais e registrar eventos.
+- [x] Implementar estados de Loading/Error e Skeletons reais.
 
 ### Fase 3: Integração Pagar.me (Backend)
 - [ ] Criar Edge Function `create-pagarme-checkout`.

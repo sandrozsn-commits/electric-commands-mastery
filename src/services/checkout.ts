@@ -1,0 +1,79 @@
+import { supabase } from "@/integrations/supabase/client";
+import { Database } from "@/integrations/supabase/types";
+
+export type Product = Database["public"]["Tables"]["products"]["Row"];
+export type OrderBump = Database["public"]["Tables"]["order_bumps"]["Row"] & {
+  product: Product;
+};
+
+export const productService = {
+  async getProducts() {
+    const { data, error } = await supabase
+      .from("products")
+      .select("*")
+      .eq("is_active", true);
+    if (error) throw error;
+    return data;
+  },
+
+  async getMainProduct() {
+    const { data, error } = await supabase
+      .from("products")
+      .select("*")
+      .eq("is_main_product", true)
+      .eq("is_active", true)
+      .single();
+    if (error) throw error;
+    return data;
+  },
+
+  async getOrderBumps() {
+    const { data, error } = await supabase
+      .from("order_bumps")
+      .select(`
+        *,
+        product:products(*)
+      `)
+      .eq("is_active", true)
+      .order("display_order", { ascending: true });
+    if (error) throw error;
+    return data as OrderBump[];
+  },
+};
+
+export const checkoutService = {
+  async createSession(params: {
+    selected_product_ids: string[];
+    source?: string;
+    utm_source?: string;
+    utm_medium?: string;
+    utm_campaign?: string;
+  }) {
+    const sessionToken = crypto.randomUUID();
+    const { data, error } = await supabase
+      .from("checkout_sessions")
+      .insert({
+        session_token: sessionToken,
+        selected_product_ids: params.selected_product_ids,
+        source: params.source,
+        utm_source: params.utm_source,
+        utm_medium: params.utm_medium,
+        utm_campaign: params.utm_campaign,
+        status: "started",
+      })
+      .select()
+      .single();
+    if (error) throw error;
+    return data;
+  },
+
+  async logEvent(sessionId: string, eventType: string, productId?: string, metadata: any = {}) {
+    const { error } = await supabase.from("checkout_events").insert({
+      session_id: sessionId,
+      event_type: eventType,
+      product_id: productId,
+      metadata,
+    });
+    if (error) console.error("Error logging checkout event:", error);
+  },
+};
