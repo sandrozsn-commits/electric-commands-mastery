@@ -1,48 +1,89 @@
 import { create } from 'zustand';
-
-export interface Product {
-  id: string;
-  name: string;
-  price: number;
-  compare_at_price?: number;
-  description?: string;
-  image_url?: string;
-  is_main?: boolean;
-}
+import { Product, OrderBump, productService, checkoutService } from '@/services/checkout';
 
 interface CheckoutState {
   mainProduct: Product | null;
-  selectedBumps: Product[];
+  orderBumps: OrderBump[];
+  selectedBumpIds: string[];
+  sessionId: string | null;
   isLoading: boolean;
-  setMainProduct: (product: Product) => void;
-  toggleBump: (product: Product) => void;
-  setIsLoading: (isLoading: boolean) => void;
+  error: string | null;
+  
+  // Actions
+  initCheckout: () => Promise<void>;
+  toggleBump: (bumpId: string) => void;
   getTotal: () => number;
 }
 
 export const useCheckoutStore = create<CheckoutState>((set, get) => ({
-  mainProduct: {
-    id: 'main-book',
-    name: 'Livro Comandos Elétricos',
-    price: 119.90,
-    compare_at_price: 169.90,
-    is_main: true,
-  },
-  selectedBumps: [],
-  isLoading: false,
-  setMainProduct: (product) => set({ mainProduct: product }),
-  toggleBump: (product) => set((state) => {
-    const isSelected = state.selectedBumps.find(b => b.id === product.id);
-    if (isSelected) {
-      return { selectedBumps: state.selectedBumps.filter(b => b.id !== product.id) };
+  mainProduct: null,
+  orderBumps: [],
+  selectedBumpIds: [],
+  sessionId: null,
+  isLoading: true,
+  error: null,
+
+  initCheckout: async () => {
+    set({ isLoading: true, error: null });
+    try {
+      const [mainProduct, orderBumps] = await Promise.all([
+        productService.getMainProduct(),
+        productService.getOrderBumps(),
+      ]);
+
+      // Create initial session
+      const session = await checkoutService.createSession({
+        selected_product_ids: [mainProduct.id],
+        source: window.location.search.includes('source') 
+          ? new URLSearchParams(window.location.search).get('source') || undefined 
+          : undefined,
+      });
+
+      set({ 
+        mainProduct, 
+        orderBumps, 
+        sessionId: session.id,
+        isLoading: false 
+      });
+      
+      await checkoutService.logEvent(session.id, 'checkout_viewed');
+    } catch (err: any) {
+      console.error("Failed to init checkout:", err);
+      set({ error: err.message, isLoading: false });
     }
-    return { selectedBumps: [...state.selectedBumps, product] };
-  }),
-  setIsLoading: (isLoading) => set({ isLoading }),
+  },
+
+  toggleBump: (bumpId: string) => {
+    const state = get();
+    const isSelected = state.selectedBumpIds.includes(bumpId);
+    const newSelectedIds = isSelected
+      ? state.selectedBumpIds.filter(id => id !== bumpId)
+      : [...state.selectedBumpIds, bumpId];
+    
+    set({ selectedBumpIds: newSelectedIds });
+
+    // Background log
+    if (state.sessionId) {
+      const bump = state.orderBumps.find(b => b.id === bumpId);
+      checkoutService.logEvent(
+        state.sessionId, 
+        isSelected ? 'order_bump_removed' : 'order_bump_selected',
+        bump?.product_id || undefined
+      );
+    }
+  },
+
   getTotal: () => {
     const state = get();
-    const mainTotal = state.mainProduct?.price || 0;
-    const bumpsTotal = state.selectedBumps.reduce((acc, bump) => acc + bump.price, 0);
-    return mainTotal + bumpsTotal;
+    let total = state.mainProduct?.price || 0;
+    
+    state.selectedBumpIds.forEach(bumpId => {
+      const bump = state.orderBumps.find(b => b.id === bumpId);
+      if (bump) {
+        total += bump.bump_price;
+      }
+    });
+    
+    return total;
   },
 }));
