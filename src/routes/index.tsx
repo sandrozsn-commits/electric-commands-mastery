@@ -43,7 +43,7 @@ import internalFoto3 from "@/assets/internal_foto_3.png.asset.json";
 import internalPresentation33 from "@/assets/internal_presentation_33.png.asset.json";
 import internalCoverHero from "@/assets/internal_cover_hero.png.asset.json";
 
-const CHECKOUT_URL = "#oferta";
+const CHECKOUT_URL = "/checkout";
 
 export const Route = createFileRoute("/")({
   head: () => ({
