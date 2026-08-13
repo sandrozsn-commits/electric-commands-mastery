@@ -35,8 +35,8 @@ export const useCheckoutStore = create<CheckoutState>((set, get) => ({
       const session = await checkoutService.createSession({
         selected_product_ids: [mainProduct.id],
         source: window.location.search.includes('source') 
-          ? new URLSearchParams(window.location.search).get('source') || undefined 
-          : undefined,
+          ? new URLSearchParams(window.location.search).get('source')
+          : null,
       });
 
       set({ 
@@ -68,7 +68,7 @@ export const useCheckoutStore = create<CheckoutState>((set, get) => ({
       checkoutService.logEvent(
         state.sessionId, 
         isSelected ? 'order_bump_removed' : 'order_bump_selected',
-        bump?.product_id || undefined
+        bump?.product_id ?? null
       );
     }
   },
