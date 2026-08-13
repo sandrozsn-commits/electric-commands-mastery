@@ -3,7 +3,7 @@ import { useCheckoutStore } from '@/store/useCheckoutStore';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { ShieldCheck, Lock, CreditCard, Pix, ArrowRight } from 'lucide-react';
+import { ShieldCheck, Lock, CreditCard, Zap, ArrowRight } from 'lucide-react';
 import { Skeleton } from '@/components/ui/skeleton';
 import { toast } from 'sonner';
 
@@ -209,7 +209,7 @@ export function CheckoutPage() {
                 <div className="mt-8 pt-6 border-t border-slate-100">
                   <div className="flex items-center justify-center gap-4 mb-4">
                     <CreditCard className="w-5 h-5 text-slate-400" />
-                    <Pix className="w-5 h-5 text-slate-400" />
+                    <Zap className="w-5 h-5 text-slate-400" />
                     <Lock className="w-5 h-5 text-green-500" />
                   </div>
                   <p className="text-center text-[11px] text-slate-400 leading-relaxed uppercase tracking-tighter font-medium">
