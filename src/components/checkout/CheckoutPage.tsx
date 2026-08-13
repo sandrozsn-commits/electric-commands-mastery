@@ -1,9 +1,12 @@
 import React, { useEffect } from 'react';
 import { useCheckoutStore } from '@/store/useCheckoutStore';
+import { checkoutService } from '@/services/checkout';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { ShieldCheck, Lock, CreditCard, Zap, ArrowRight, AlertCircle } from 'lucide-react';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { ShieldCheck, Lock, CreditCard, Zap, ArrowRight, AlertCircle, Loader2, User, Mail, Phone } from 'lucide-react';
 import { Skeleton } from '@/components/ui/skeleton';
 import { toast } from 'sonner';
 
@@ -29,6 +32,13 @@ function CheckoutSkeleton() {
 }
 
 export function CheckoutPage() {
+  const [customer, setCustomer] = React.useState({
+    name: '',
+    email: '',
+    phone: '',
+  });
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
+
   const { 
     mainProduct, 
     orderBumps, 
@@ -37,18 +47,66 @@ export function CheckoutPage() {
     getTotal, 
     isLoading, 
     error,
+    sessionId,
     initCheckout 
   } = useCheckoutStore();
 
   useEffect(() => {
-    console.log("CheckoutPage: Component mounted, calling initCheckout");
     initCheckout();
   }, [initCheckout]);
 
-  const handleContinue = () => {
-    toast.info('Iniciando pagamento...', {
-      description: 'Você será redirecionado para o checkout seguro (Fase 3).',
-    });
+  const handleContinue = async () => {
+    if (!customer.name || !customer.email || !customer.phone) {
+      toast.error('Preencha seus dados', {
+        description: 'Precisamos do seu nome, e-mail e telefone para processar o pedido.',
+      });
+      return;
+    }
+
+    // Basic email validation
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(customer.email)) {
+      toast.error('E-mail inválido', {
+        description: 'Por favor, insira um e-mail válido.',
+      });
+      return;
+    }
+
+    if (!sessionId || !mainProduct) return;
+
+    setIsSubmitting(true);
+    try {
+      const selectedIds = [mainProduct.id, ...selectedBumpIds.map(id => {
+        const bump = orderBumps.find(b => b.id === id);
+        return bump?.product_id;
+      }).filter(Boolean) as string[]];
+
+      const { checkout_url } = await checkoutService.createPagarmeCheckout({
+        session_token: sessionId,
+        selected_product_ids: selectedIds,
+        customer,
+      });
+
+      toast.success('Pedido criado com sucesso!', {
+        description: 'Redirecionando para o pagamento...',
+      });
+
+      // In development, show a toast instead of actual redirect if it's a mock URL
+      if (checkout_url.includes('mock-url')) {
+        setTimeout(() => {
+          toast.success('Ambiente de teste!', {
+            description: 'Em produção você seria redirecionado agora.',
+          });
+          setIsSubmitting(false);
+        }, 2000);
+      } else {
+        window.location.href = checkout_url;
+      }
+    } catch (err: any) {
+      toast.error('Erro ao processar checkout', {
+        description: err.message,
+      });
+      setIsSubmitting(false);
+    }
   };
 
   if (isLoading && !mainProduct) {
@@ -108,6 +166,55 @@ export function CheckoutPage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* Main Column */}
           <div className="lg:col-span-7 space-y-8">
+            {/* Customer Data Form */}
+            <section>
+              <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
+                <span className="w-1 h-6 bg-blue-600 rounded-full"></span>
+                Seus dados
+              </h2>
+              <Card className="p-6 border-slate-200">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="space-y-2 md:col-span-2">
+                    <Label htmlFor="name" className="flex items-center gap-2">
+                      <User className="w-4 h-4 text-slate-400" /> Nome Completo
+                    </Label>
+                    <Input 
+                      id="name" 
+                      placeholder="Ex: João Silva" 
+                      value={customer.name}
+                      onChange={(e) => setCustomer({...customer, name: e.target.value})}
+                      className="border-slate-200 focus:border-blue-500"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="email" className="flex items-center gap-2">
+                      <Mail className="w-4 h-4 text-slate-400" /> E-mail para entrega
+                    </Label>
+                    <Input 
+                      id="email" 
+                      type="email"
+                      placeholder="seu@email.com" 
+                      value={customer.email}
+                      onChange={(e) => setCustomer({...customer, email: e.target.value})}
+                      className="border-slate-200 focus:border-blue-500"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="phone" className="flex items-center gap-2">
+                      <Phone className="w-4 h-4 text-slate-400" /> WhatsApp
+                    </Label>
+                    <Input 
+                      id="phone" 
+                      placeholder="(00) 00000-0000" 
+                      value={customer.phone}
+                      onChange={(e) => setCustomer({...customer, phone: e.target.value})}
+                      className="border-slate-200 focus:border-blue-500"
+                    />
+                  </div>
+                </div>
+              </Card>
+            </section>
+
             {/* Main Product Section */}
             <section>
               <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
@@ -254,10 +361,20 @@ export function CheckoutPage() {
 
                 <button 
                   onClick={handleContinue}
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-black py-4 rounded-xl shadow-lg shadow-blue-200 flex items-center justify-center gap-2 transition-all transform hover:scale-[1.02] active:scale-[0.98]"
+                  disabled={isSubmitting}
+                  className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-slate-300 text-white font-black py-4 rounded-xl shadow-lg shadow-blue-200 flex items-center justify-center gap-2 transition-all transform hover:scale-[1.02] active:scale-[0.98]"
                 >
-                  CONTINUAR PARA PAGAMENTO
-                  <ArrowRight className="w-5 h-5" />
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="w-5 h-5 animate-spin" />
+                      PROCESSANDO...
+                    </>
+                  ) : (
+                    <>
+                      CONTINUAR PARA PAGAMENTO
+                      <ArrowRight className="w-5 h-5" />
+                    </>
+                  )}
                 </button>
 
                 <div className="mt-8 pt-6 border-t border-slate-100">
