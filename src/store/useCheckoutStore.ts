@@ -20,29 +20,30 @@ export const useCheckoutStore = create<CheckoutState>((set, get) => ({
   orderBumps: [],
   selectedBumpIds: [],
   sessionId: null,
-  isLoading: false, // Start as false to avoid early hydration skeleton
+  isLoading: false,
   error: null,
 
   initCheckout: async () => {
-    // If already loading or already initialized, don't re-init
-    if (get().isLoading || get().sessionId) return;
+    // Basic guard to prevent multiple simultaneous calls
+    if (get().isLoading) return;
     
+    // If already have data and a session, we're good
+    if (get().mainProduct && get().sessionId) return;
+
     set({ isLoading: true, error: null });
+    
     try {
-      console.log("Store: Fetching products and bumps...");
+      console.log("Store: Starting initialization...");
       const [mainProduct, orderBumps] = await Promise.all([
         productService.getMainProduct(),
         productService.getOrderBumps(),
       ]);
       
-      console.log("Store: Products fetched:", { mainProduct, bumpsCount: orderBumps.length });
+      console.log("Store: Fetched", orderBumps.length, "bumps");
 
-      // Create initial session
       const session = await checkoutService.createSession({
         selected_product_ids: [mainProduct.id],
-        source: typeof window !== 'undefined' && window.location.search.includes('source') 
-          ? new URLSearchParams(window.location.search).get('source')
-          : null,
+        source: typeof window !== 'undefined' ? new URLSearchParams(window.location.search).get('source') : null,
       });
 
       set({ 
@@ -54,8 +55,8 @@ export const useCheckoutStore = create<CheckoutState>((set, get) => ({
       
       await checkoutService.logEvent(session.id, 'checkout_viewed');
     } catch (err: any) {
-      console.error("Store: Failed to init checkout:", err);
-      set({ error: err.message, isLoading: false });
+      console.error("Store: Initialization error", err);
+      set({ error: err.message || "Falha ao carregar checkout", isLoading: false });
     }
   },
 
@@ -68,7 +69,6 @@ export const useCheckoutStore = create<CheckoutState>((set, get) => ({
     
     set({ selectedBumpIds: newSelectedIds });
 
-    // Background log
     if (state.sessionId) {
       const bump = state.orderBumps.find(b => b.id === bumpId);
       checkoutService.logEvent(
