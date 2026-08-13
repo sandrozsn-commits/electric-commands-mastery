@@ -20,23 +20,30 @@ export const useCheckoutStore = create<CheckoutState>((set, get) => ({
   orderBumps: [],
   selectedBumpIds: [],
   sessionId: null,
-  isLoading: true,
+  isLoading: false,
   error: null,
 
   initCheckout: async () => {
+    // Basic guard to prevent multiple simultaneous calls
+    if (get().isLoading) return;
+    
+    // If already have data and a session, we're good
+    if (get().mainProduct && get().sessionId) return;
+
     set({ isLoading: true, error: null });
+    
     try {
+      console.log("Store: Starting initialization...");
       const [mainProduct, orderBumps] = await Promise.all([
         productService.getMainProduct(),
         productService.getOrderBumps(),
       ]);
+      
+      console.log("Store: Fetched", orderBumps.length, "bumps");
 
-      // Create initial session
       const session = await checkoutService.createSession({
         selected_product_ids: [mainProduct.id],
-        source: window.location.search.includes('source') 
-          ? new URLSearchParams(window.location.search).get('source') || undefined 
-          : undefined,
+        source: typeof window !== 'undefined' ? new URLSearchParams(window.location.search).get('source') : null,
       });
 
       set({ 
@@ -48,8 +55,8 @@ export const useCheckoutStore = create<CheckoutState>((set, get) => ({
       
       await checkoutService.logEvent(session.id, 'checkout_viewed');
     } catch (err: any) {
-      console.error("Failed to init checkout:", err);
-      set({ error: err.message, isLoading: false });
+      console.error("Store: Initialization error", err);
+      set({ error: err.message || "Falha ao carregar checkout", isLoading: false });
     }
   },
 
@@ -62,13 +69,12 @@ export const useCheckoutStore = create<CheckoutState>((set, get) => ({
     
     set({ selectedBumpIds: newSelectedIds });
 
-    // Background log
     if (state.sessionId) {
       const bump = state.orderBumps.find(b => b.id === bumpId);
       checkoutService.logEvent(
         state.sessionId, 
         isSelected ? 'order_bump_removed' : 'order_bump_selected',
-        bump?.product_id || undefined
+        bump?.product_id ?? null
       );
     }
   },
