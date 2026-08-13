@@ -41,6 +41,8 @@ export function CheckoutPage() {
     initCheckout 
   } = useCheckoutStore();
 
+  console.log("Order Bumps state:", orderBumps);
+
   useEffect(() => {
     initCheckout();
   }, [initCheckout]);
