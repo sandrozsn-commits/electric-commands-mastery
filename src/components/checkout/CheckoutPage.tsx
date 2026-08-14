@@ -1,144 +1,48 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useCheckoutStore } from '@/store/useCheckoutStore';
-import { checkoutService } from '@/services/checkout';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { ShieldCheck, Lock, CreditCard, Zap, ArrowRight, AlertCircle, Loader2, User, Mail, Phone } from 'lucide-react';
+import { ShieldCheck, Lock, CreditCard, Zap, ArrowRight } from 'lucide-react';
 import { Skeleton } from '@/components/ui/skeleton';
 import { toast } from 'sonner';
 
-function CheckoutSkeleton() {
-  return (
-    <div className="max-w-5xl mx-auto px-4 py-8 md:py-12 animate-pulse">
-      <div className="h-10 w-64 bg-slate-200 mx-auto mb-4 rounded"></div>
-      <div className="h-4 w-96 bg-slate-200 mx-auto mb-10 rounded"></div>
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-        <div className="lg:col-span-7 space-y-8">
-          <Skeleton className="h-32 w-full rounded-xl" />
-          <div className="space-y-4">
-            <Skeleton className="h-24 w-full rounded-xl" />
-            <Skeleton className="h-24 w-full rounded-xl" />
-          </div>
-        </div>
-        <div className="lg:col-span-5">
-          <Skeleton className="h-96 w-full rounded-xl" />
-        </div>
-      </div>
-    </div>
-  );
-}
+// Mock bumps for Phase 1
+const MOCK_BUMPS = [
+  {
+    id: 'nr10',
+    name: 'NR-10 Comentada',
+    price: 37.00,
+    compare_at_price: 37.00,
+    description: 'A norma explicada em linguagem de campo para você trabalhar protegido.',
+    benefit: 'Trabalhe com segurança',
+  },
+  {
+    id: 'videoaulas',
+    name: 'Videoaulas de Diagramas',
+    price: 47.00,
+    compare_at_price: 47.00,
+    description: 'Videoaulas onde destrinchamos contato por contato as chaves de partida.',
+    benefit: 'Aprenda na prática',
+  },
+  {
+    id: 'simuladores',
+    name: 'Simuladores de Circuitos',
+    price: 47.00,
+    compare_at_price: 47.00,
+    description: 'Programas para testar circuitos no computador antes de ir para o painel.',
+    benefit: 'Evite erros na montagem',
+  },
+];
 
 export function CheckoutPage() {
-  const [customer, setCustomer] = React.useState({
-    name: '',
-    email: '',
-    phone: '',
-  });
-  const [isSubmitting, setIsSubmitting] = React.useState(false);
+  const { mainProduct, selectedBumps, toggleBump, getTotal, isLoading } = useCheckoutStore();
 
-  const { 
-    mainProduct, 
-    orderBumps, 
-    selectedBumpIds, 
-    toggleBump, 
-    getTotal, 
-    isLoading, 
-    error,
-    sessionId,
-    initCheckout 
-  } = useCheckoutStore();
-
-  useEffect(() => {
-    initCheckout();
-  }, [initCheckout]);
-
-  const handleContinue = async () => {
-    if (!customer.name || !customer.email || !customer.phone) {
-      toast.error('Preencha seus dados', {
-        description: 'Precisamos do seu nome, e-mail e telefone para processar o pedido.',
-      });
-      return;
-    }
-
-    // Basic email validation
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(customer.email)) {
-      toast.error('E-mail inválido', {
-        description: 'Por favor, insira um e-mail válido.',
-      });
-      return;
-    }
-
-    if (!sessionId || !mainProduct) return;
-
-    setIsSubmitting(true);
-    try {
-      const selectedIds = [mainProduct.id, ...selectedBumpIds.map(id => {
-        const bump = orderBumps.find(b => b.id === id);
-        return bump?.product_id;
-      }).filter(Boolean) as string[]];
-
-      const { checkout_url } = await checkoutService.createPagarmeCheckout({
-        session_token: sessionId,
-        selected_product_ids: selectedIds,
-        customer,
-      });
-
-      toast.success('Pedido criado com sucesso!', {
-        description: 'Redirecionando para o pagamento...',
-      });
-
-      // In development, show a toast instead of actual redirect if it's a mock URL
-      if (checkout_url.includes('mock-url')) {
-        setTimeout(() => {
-          toast.success('Ambiente de teste!', {
-            description: 'Em produção você seria redirecionado agora.',
-          });
-          setIsSubmitting(false);
-        }, 2000);
-      } else {
-        window.location.href = checkout_url;
-      }
-    } catch (err: any) {
-      toast.error('Erro ao processar checkout', {
-        description: err.message,
-      });
-      setIsSubmitting(false);
-    }
+  const handleContinue = () => {
+    toast.info('Finalizando pedido...', {
+      description: 'Você será redirecionado para o pagamento em breve (Fase 3).',
+    });
   };
-
-  if (isLoading && !mainProduct) {
-    return (
-      <div className="min-h-screen bg-slate-50">
-        <header className="bg-white border-b h-16 flex items-center px-4">
-          <div className="max-w-5xl mx-auto w-full font-bold text-xl tracking-tight text-slate-800">
-            GUIA <span className="text-blue-600">PRÁTICO</span>
-          </div>
-        </header>
-        <CheckoutSkeleton />
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="min-h-screen bg-slate-50 flex items-center justify-center p-4">
-        <Card className="max-w-md w-full p-8 text-center">
-          <AlertCircle className="w-12 h-12 text-destructive mx-auto mb-4" />
-          <h2 className="text-xl font-bold mb-2">Ops! Algo deu errado</h2>
-          <p className="text-slate-600 mb-6">{error}</p>
-          <button 
-            onClick={() => window.location.reload()}
-            className="w-full bg-blue-600 text-white font-bold py-3 rounded-lg"
-          >
-            Tentar novamente
-          </button>
-        </Card>
-      </div>
-    );
-  }
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 pb-20">
@@ -166,55 +70,6 @@ export function CheckoutPage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* Main Column */}
           <div className="lg:col-span-7 space-y-8">
-            {/* Customer Data Form */}
-            <section>
-              <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
-                <span className="w-1 h-6 bg-blue-600 rounded-full"></span>
-                Seus dados
-              </h2>
-              <Card className="p-6 border-slate-200">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="space-y-2 md:col-span-2">
-                    <Label htmlFor="name" className="flex items-center gap-2">
-                      <User className="w-4 h-4 text-slate-400" /> Nome Completo
-                    </Label>
-                    <Input 
-                      id="name" 
-                      placeholder="Ex: João Silva" 
-                      value={customer.name}
-                      onChange={(e) => setCustomer({...customer, name: e.target.value})}
-                      className="border-slate-200 focus:border-blue-500"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="email" className="flex items-center gap-2">
-                      <Mail className="w-4 h-4 text-slate-400" /> E-mail para entrega
-                    </Label>
-                    <Input 
-                      id="email" 
-                      type="email"
-                      placeholder="seu@email.com" 
-                      value={customer.email}
-                      onChange={(e) => setCustomer({...customer, email: e.target.value})}
-                      className="border-slate-200 focus:border-blue-500"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="phone" className="flex items-center gap-2">
-                      <Phone className="w-4 h-4 text-slate-400" /> WhatsApp
-                    </Label>
-                    <Input 
-                      id="phone" 
-                      placeholder="(00) 00000-0000" 
-                      value={customer.phone}
-                      onChange={(e) => setCustomer({...customer, phone: e.target.value})}
-                      className="border-slate-200 focus:border-blue-500"
-                    />
-                  </div>
-                </div>
-              </Card>
-            </section>
-
             {/* Main Product Section */}
             <section>
               <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
@@ -245,12 +100,12 @@ export function CheckoutPage() {
               </p>
               
               <div className="space-y-4">
-                {orderBumps.map((bump) => {
-                  const isSelected = selectedBumpIds.includes(bump.id);
+                {MOCK_BUMPS.map((bump) => {
+                  const isSelected = selectedBumps.find(b => b.id === bump.id);
                   return (
                     <div 
                       key={bump.id}
-                      onClick={() => toggleBump(bump.id)}
+                      onClick={() => toggleBump(bump)}
                       className={`relative cursor-pointer transition-all duration-200 border-2 rounded-xl overflow-hidden ${
                         isSelected 
                           ? 'border-orange-500 bg-orange-50/20 shadow-md ring-1 ring-orange-500/20' 
@@ -261,8 +116,8 @@ export function CheckoutPage() {
                         <div className="pt-1">
                           <Checkbox 
                             id={bump.id} 
-                            checked={isSelected}
-                            onCheckedChange={() => toggleBump(bump.id)}
+                            checked={!!isSelected}
+                            onCheckedChange={() => toggleBump(bump)}
                             className="h-6 w-6 border-slate-300 data-[state=checked]:bg-orange-500 data-[state=checked]:border-orange-500"
                           />
                         </div>
@@ -270,33 +125,29 @@ export function CheckoutPage() {
                           <div className="flex justify-between items-start mb-1">
                             <div>
                               <div className="flex items-center gap-2">
-                                <h3 className="font-bold text-base md:text-lg">{bump.product?.name}</h3>
+                                <h3 className="font-bold text-base md:text-lg">{bump.name}</h3>
                                 {isSelected && (
                                   <Badge className="bg-orange-500 hover:bg-orange-600 text-[10px] uppercase font-bold py-0 h-4">
                                     Adicionado
                                   </Badge>
                                 )}
                               </div>
-                              <p className="text-sm text-slate-600 mt-1 line-clamp-2">{bump.short_description}</p>
+                              <p className="text-sm text-slate-600 mt-1 line-clamp-2">{bump.description}</p>
                             </div>
                             <div className="text-right ml-4">
-                              {bump.product?.compare_at_price && (
-                                <span className="block text-xs text-slate-400 line-through">
-                                  R$ {bump.product.compare_at_price.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
-                                </span>
-                              )}
+                              <span className="block text-xs text-slate-400 line-through">
+                                R$ {bump.compare_at_price?.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+                              </span>
                               <span className="block font-bold text-orange-600">
-                                R$ {bump.bump_price.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+                                R$ {bump.price.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                               </span>
                             </div>
                           </div>
                           
-                          {bump.headline && (
-                            <div className="mt-3 flex items-center gap-2 text-xs font-semibold text-green-600 bg-green-50 w-fit px-2 py-1 rounded">
-                              <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-                              {bump.headline}
-                            </div>
-                          )}
+                          <div className="mt-3 flex items-center gap-2 text-xs font-semibold text-green-600 bg-green-50 w-fit px-2 py-1 rounded">
+                            <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                            {bump.benefit}
+                          </div>
                         </div>
                       </div>
                       
@@ -307,12 +158,6 @@ export function CheckoutPage() {
                     </div>
                   );
                 })}
-
-                {orderBumps.length === 0 && !isLoading && (
-                  <div className="p-8 text-center border-2 border-dashed border-slate-200 rounded-xl bg-white/50 text-slate-400">
-                    Nenhuma oferta especial disponível no momento.
-                  </div>
-                )}
               </div>
             </section>
           </div>
@@ -333,18 +178,14 @@ export function CheckoutPage() {
                     <span className="font-medium">R$ {mainProduct?.price.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</span>
                   </div>
                   
-                  {selectedBumpIds.map(bumpId => {
-                    const bump = orderBumps.find(b => b.id === bumpId);
-                    if (!bump) return null;
-                    return (
-                      <div key={bump.id} className="flex justify-between text-sm animate-in fade-in slide-in-from-top-2 duration-300">
-                        <span className="text-slate-600 flex items-center gap-2">
-                          <span className="text-orange-500 font-bold">+</span> {bump.product?.name}
-                        </span>
-                        <span className="font-medium">R$ {bump.bump_price.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</span>
-                      </div>
-                    );
-                  })}
+                  {selectedBumps.map(bump => (
+                    <div key={bump.id} className="flex justify-between text-sm animate-in fade-in slide-in-from-top-2 duration-300">
+                      <span className="text-slate-600 flex items-center gap-2">
+                        <span className="text-orange-500 font-bold">+</span> {bump.name}
+                      </span>
+                      <span className="font-medium">R$ {bump.price.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</span>
+                    </div>
+                  ))}
                   
                   <div className="pt-4 border-t border-dashed border-slate-200 flex justify-between items-baseline">
                     <span className="text-lg font-bold">Total</span>
@@ -361,20 +202,10 @@ export function CheckoutPage() {
 
                 <button 
                   onClick={handleContinue}
-                  disabled={isSubmitting}
-                  className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-slate-300 text-white font-black py-4 rounded-xl shadow-lg shadow-blue-200 flex items-center justify-center gap-2 transition-all transform hover:scale-[1.02] active:scale-[0.98]"
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-black py-4 rounded-xl shadow-lg shadow-blue-200 flex items-center justify-center gap-2 transition-all transform hover:scale-[1.02] active:scale-[0.98]"
                 >
-                  {isSubmitting ? (
-                    <>
-                      <Loader2 className="w-5 h-5 animate-spin" />
-                      PROCESSANDO...
-                    </>
-                  ) : (
-                    <>
-                      CONTINUAR PARA PAGAMENTO
-                      <ArrowRight className="w-5 h-5" />
-                    </>
-                  )}
+                  CONTINUAR PARA PAGAMENTO
+                  <ArrowRight className="w-5 h-5" />
                 </button>
 
                 <div className="mt-8 pt-6 border-t border-slate-100">

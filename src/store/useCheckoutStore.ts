@@ -1,95 +1,48 @@
 import { create } from 'zustand';
-import { Product, OrderBump, productService, checkoutService } from '@/services/checkout';
+
+export interface Product {
+  id: string;
+  name: string;
+  price: number;
+  compare_at_price?: number;
+  description?: string;
+  image_url?: string;
+  is_main?: boolean;
+}
 
 interface CheckoutState {
   mainProduct: Product | null;
-  orderBumps: OrderBump[];
-  selectedBumpIds: string[];
-  sessionId: string | null;
+  selectedBumps: Product[];
   isLoading: boolean;
-  error: string | null;
-  
-  // Actions
-  initCheckout: () => Promise<void>;
-  toggleBump: (bumpId: string) => void;
+  setMainProduct: (product: Product) => void;
+  toggleBump: (product: Product) => void;
+  setIsLoading: (isLoading: boolean) => void;
   getTotal: () => number;
 }
 
 export const useCheckoutStore = create<CheckoutState>((set, get) => ({
-  mainProduct: null,
-  orderBumps: [],
-  selectedBumpIds: [],
-  sessionId: null,
+  mainProduct: {
+    id: 'main-book',
+    name: 'Livro Comandos Elétricos',
+    price: 119.90,
+    compare_at_price: 169.90,
+    is_main: true,
+  },
+  selectedBumps: [],
   isLoading: false,
-  error: null,
-
-  initCheckout: async () => {
-    // Basic guard to prevent multiple simultaneous calls
-    if (get().isLoading) return;
-    
-    // If already have data and a session, we're good
-    if (get().mainProduct && get().sessionId) return;
-
-    set({ isLoading: true, error: null });
-    
-    try {
-      console.log("Store: Starting initialization...");
-      const [mainProduct, orderBumps] = await Promise.all([
-        productService.getMainProduct(),
-        productService.getOrderBumps(),
-      ]);
-      
-      console.log("Store: Fetched", orderBumps.length, "bumps");
-
-      const session = await checkoutService.createSession({
-        selected_product_ids: [mainProduct.id],
-        source: typeof window !== 'undefined' ? new URLSearchParams(window.location.search).get('source') : null,
-      });
-
-      set({ 
-        mainProduct, 
-        orderBumps, 
-        sessionId: session.id,
-        isLoading: false 
-      });
-      
-      await checkoutService.logEvent(session.id, 'checkout_viewed');
-    } catch (err: any) {
-      console.error("Store: Initialization error", err);
-      set({ error: err.message || "Falha ao carregar checkout", isLoading: false });
+  setMainProduct: (product) => set({ mainProduct: product }),
+  toggleBump: (product) => set((state) => {
+    const isSelected = state.selectedBumps.find(b => b.id === product.id);
+    if (isSelected) {
+      return { selectedBumps: state.selectedBumps.filter(b => b.id !== product.id) };
     }
-  },
-
-  toggleBump: (bumpId: string) => {
-    const state = get();
-    const isSelected = state.selectedBumpIds.includes(bumpId);
-    const newSelectedIds = isSelected
-      ? state.selectedBumpIds.filter(id => id !== bumpId)
-      : [...state.selectedBumpIds, bumpId];
-    
-    set({ selectedBumpIds: newSelectedIds });
-
-    if (state.sessionId) {
-      const bump = state.orderBumps.find(b => b.id === bumpId);
-      checkoutService.logEvent(
-        state.sessionId, 
-        isSelected ? 'order_bump_removed' : 'order_bump_selected',
-        bump?.product_id ?? null
-      );
-    }
-  },
-
+    return { selectedBumps: [...state.selectedBumps, product] };
+  }),
+  setIsLoading: (isLoading) => set({ isLoading }),
   getTotal: () => {
     const state = get();
-    let total = state.mainProduct?.price || 0;
-    
-    state.selectedBumpIds.forEach(bumpId => {
-      const bump = state.orderBumps.find(b => b.id === bumpId);
-      if (bump) {
-        total += bump.bump_price;
-      }
-    });
-    
-    return total;
+    const mainTotal = state.mainProduct?.price || 0;
+    const bumpsTotal = state.selectedBumps.reduce((acc, bump) => acc + bump.price, 0);
+    return mainTotal + bumpsTotal;
   },
 }));
