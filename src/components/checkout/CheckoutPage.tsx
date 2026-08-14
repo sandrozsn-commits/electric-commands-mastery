@@ -12,7 +12,7 @@ const MOCK_BUMPS = [
   {
     id: 'nr10',
     name: 'NR-10 Comentada',
-    price: 37.00,
+    price: 27.00,
     compare_at_price: 37.00,
     description: 'A norma explicada em linguagem de campo para você trabalhar protegido.',
     benefit: 'Trabalhe com segurança',
@@ -20,7 +20,7 @@ const MOCK_BUMPS = [
   {
     id: 'videoaulas',
     name: 'Videoaulas de Diagramas',
-    price: 47.00,
+    price: 37.00,
     compare_at_price: 47.00,
     description: 'Videoaulas onde destrinchamos contato por contato as chaves de partida.',
     benefit: 'Aprenda na prática',
@@ -28,7 +28,7 @@ const MOCK_BUMPS = [
   {
     id: 'simuladores',
     name: 'Simuladores de Circuitos',
-    price: 47.00,
+    price: 37.00,
     compare_at_price: 47.00,
     description: 'Programas para testar circuitos no computador antes de ir para o painel.',
     benefit: 'Evite erros na montagem',
@@ -47,7 +47,7 @@ export function CheckoutPage() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 pb-20">
       {/* Header */}
-      <header className="bg-white border-b sticky top-0 z-50">
+      <header className="bg-white border-b sticky top-0 z-10">
         <div className="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
           <div className="font-bold text-xl tracking-tight text-slate-800">
             GUIA <span className="text-blue-600">PRÁTICO</span>
@@ -168,9 +168,7 @@ export function CheckoutPage() {
               <Card className="p-6 md:p-8 border-slate-200 shadow-sm overflow-hidden relative">
                 <div className="absolute top-0 left-0 right-0 h-1 bg-blue-600"></div>
                 
-                <h2 className="text-xl font-bold mb-6 flex items-center gap-2">
-                  Resumo do pedido
-                </h2>
+                <h2 className="text-xl font-bold mb-6">Resumo do pedido</h2>
                 
                 <div className="space-y-4 mb-8">
                   <div className="flex justify-between text-sm">
