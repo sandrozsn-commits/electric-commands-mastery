@@ -43,7 +43,7 @@ import internalFoto3 from "@/assets/internal_foto_3.png.asset.json";
 import internalPresentation33 from "@/assets/internal_presentation_33.png.asset.json";
 import internalCoverHero from "@/assets/internal_cover_hero.png.asset.json";
 
-const CHECKOUT_URL = "#oferta";
+const CHECKOUT_URL = "https://payfast.greenn.com.br/192625/offer/Ut4ZEA";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -231,7 +231,7 @@ const faqs = [
   },
   {
     q: "Como funciona o pagamento?",
-    a: "Você pode pagar no cartão de crédito em até 12x de R$11,99 ou escolher o pagamento via PIX por R$107,91, com 10% de desconto.",
+    a: "Você pode pagar no cartão de crédito em até 12x de R$12,33 ou à vista por R$119,90 no PIX.",
   },
   {
     q: "E se eu não gostar?",
@@ -344,7 +344,7 @@ function Index() {
                 <span className="text-lg text-ink-foreground/60 line-through">De R$ 397,90</span>
                 <div className="flex items-baseline gap-3">
                   <span className="text-4xl font-extrabold text-accent">R$ 119,90</span>
-                  <span className="text-sm font-medium text-ink-foreground/70">12x de R$ 11,99</span>
+                  <span className="text-sm font-medium text-ink-foreground/70">12x de R$ 12,33</span>
                 </div>
                 <p className="mt-1 text-sm font-semibold text-success">Você economiza R$ 278,00</p>
               </div>
@@ -352,9 +352,9 @@ function Index() {
               <div className="flex flex-col gap-3">
                 <CTA className="w-full sm:w-fit">QUERO MEU LIVRO + BÔNUS</CTA>
                 <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-medium text-ink-foreground/70">
-                  <span>12x de R$ 11,99</span>
+                  <span>12x de R$ 12,33</span>
                   <span className="h-1 w-1 rounded-full bg-ink-foreground/30" />
-                  <span className="text-accent">PIX R$ 107,91</span>
+                  <span className="text-accent">PIX R$ 119,90</span>
                   <span className="h-1 w-1 rounded-full bg-ink-foreground/30" />
                   <span>Frete grátis</span>
                 </div>
@@ -708,11 +708,11 @@ function Index() {
                 <div className="mt-2 space-y-2">
                   <div className="flex items-center justify-between border-b border-border pb-2 text-sm">
                     <span>Cartão de Crédito</span>
-                    <span className="font-bold">12x de R$ 11,99</span>
+                    <span className="font-bold">12x de R$ 12,33</span>
                   </div>
                   <div className="flex items-center justify-between pt-1 text-sm">
-                    <span className="flex items-center gap-1">PIX <span className="rounded bg-accent/10 px-1.5 py-0.5 text-[10px] text-accent font-bold">10% OFF</span></span>
-                    <span className="text-lg font-extrabold text-accent">R$ 107,91</span>
+                    <span className="flex items-center gap-1">PIX </span>
+                    <span className="text-lg font-extrabold text-accent">R$ 119,90</span>
                   </div>
                 </div>
               </div>
@@ -724,7 +724,7 @@ function Index() {
 
               <CTA className="w-full">QUERO MEU LIVRO + BÔNUS</CTA>
               <p className="text-center text-xs font-medium text-muted-foreground">
-                12x de R$ 11,99 • PIX R$ 107,91 • Frete grátis
+                12x de R$ 12,33 • PIX R$ 119,90 • Frete grátis
               </p>
             </div>
 
@@ -885,7 +885,7 @@ function Index() {
             Da próxima vez que o painel parar, você vai saber exatamente o que fazer.
           </h2>
           <p className="mt-5 text-lg text-ink-foreground/75">
-            Livro físico + e-book em PDF + 3 bônus. Frete grátis, PIX com desconto e 7 dias de garantia.
+            Livro físico + e-book em PDF + 3 bônus. Frete grátis, PIX e 7 dias de garantia.
           </p>
           <div className="mt-8 flex flex-col items-center">
             <span className="text-lg text-ink-foreground/60 line-through">De R$ 397,90</span>
@@ -895,7 +895,7 @@ function Index() {
           <div className="mt-8 flex flex-col items-center">
             <CTA>QUERO MEU LIVRO + BÔNUS</CTA>
             <p className="mt-4 text-sm font-medium text-ink-foreground/70">
-              12x de R$ 11,99 • PIX R$ 107,91 • Frete grátis
+              12x de R$ 12,33 • PIX R$ 119,90 • Frete grátis
             </p>
           </div>
         </div>
@@ -926,7 +926,7 @@ function Index() {
       >
         <div className="mx-auto grid max-w-5xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 py-3">
           <div className="min-w-0">
-            <p className="truncate text-sm font-bold text-accent">R$ 119,90 ou R$ 107,91 no PIX</p>
+            <p className="truncate text-sm font-bold text-accent">R$ 119,90 no PIX ou cartão</p>
             <p className="truncate text-xs text-muted-foreground">
               Guia Prático Definitivo — Livro + E-book + Bônus
             </p>
