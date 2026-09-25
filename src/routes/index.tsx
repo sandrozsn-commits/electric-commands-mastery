@@ -161,14 +161,14 @@ const realSocialProof = [
 ];
 
 const internalPhotos = [
-  { src: "/assets/internal_4.png", alt: "Diagramas - Chaves de partidas de motores" },
-  { src: "/assets/internal_7.png", alt: "Chave Estrela-Triângulo Automática com Reversão" },
-  { src: "/assets/internal_9.png", alt: "Redes e Ramais - Análise de Defeitos" },
-  { src: "/assets/internal_16.png", alt: "Motores Elétricos - Motor Monofásico passo a passo" },
-  { src: "/assets/internal_17.png", alt: "Motores Elétricos - Motor Trifásico e Placa de Identificação" },
-  { src: "/assets/internal_19.png", alt: "Dispositivos de Comandos Elétricos - Relé Térmico" },
-  { src: "/assets/internal_25.png", alt: "Simbologias de Bobinas e Contatos" },
-  { src: "/assets/internal_foto_3.png", alt: "Inversores de Frequência - Parametrização" },
+  { src: "/assets/internal_4.webp", alt: "Diagramas - Chaves de partidas de motores" },
+  { src: "/assets/internal_7.webp", alt: "Chave Estrela-Triângulo Automática com Reversão" },
+  { src: "/assets/internal_9.webp", alt: "Redes e Ramais - Análise de Defeitos" },
+  { src: "/assets/internal_16.webp", alt: "Motores Elétricos - Motor Monofásico passo a passo" },
+  { src: "/assets/internal_17.webp", alt: "Motores Elétricos - Motor Trifásico e Placa de Identificação" },
+  { src: "/assets/internal_19.webp", alt: "Dispositivos de Comandos Elétricos - Relé Térmico" },
+  { src: "/assets/internal_25.webp", alt: "Simbologias de Bobinas e Contatos" },
+  { src: "/assets/internal_foto_3.webp", alt: "Inversores de Frequência - Parametrização" },
 ];
 
 const testimonials = [
@@ -358,7 +358,7 @@ function Index() {
 
           <div className="animate-rise flex justify-center">
             <img
-              src={"/assets/capa-comandos-eletricos.png"}
+              src={"/assets/capa-comandos-eletricos.webp"}
               alt="Capa do livro Comandos Elétricos - O Seu Guia Prático e Definitivo, 2ª edição, de Sandro Zander Soares Nogueira"
               width={780}
               height={1050}
@@ -397,7 +397,7 @@ function Index() {
       <section className="bg-secondary/60 py-20">
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 lg:grid-cols-2">
           <img
-            src={"/assets/internal_presentation_33.png"}
+            src={"/assets/internal_presentation_33.webp"}
             alt="Página interna do livro sobre proteção, fusíveis e dimensionamento"
             width={716}
             height={950}
@@ -598,7 +598,7 @@ function Index() {
             </ul>
           </div>
           <img
-            src={"/assets/internal_cover_hero.png"}
+            src={"/assets/internal_cover_hero.webp"}
             alt="Foto do Livro Comandos Elétricos"
             loading="lazy"
             className="w-full rounded-2xl border border-border bg-card shadow-[var(--shadow-lift)]"
