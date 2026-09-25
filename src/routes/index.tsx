@@ -24,24 +24,6 @@ import {
   Zap,
 } from "lucide-react";
 
-import bookCover from "@/assets/book-cover.png.asset.json";
-import pageContator from "@/assets/page-contator.jpg.asset.json";
-import pageDiagramas from "@/assets/page-diagramas.jpg.asset.json";
-import authorPhoto from "@/assets/author-real.jpg.asset.json";
-import zap1 from "@/assets/zap_1.webp.asset.json";
-import zap3 from "@/assets/zap_3.webp.asset.json";
-import zap5 from "@/assets/zap_5.webp.asset.json";
-import zap6 from "@/assets/zap_6.webp.asset.json";
-import internal4 from "@/assets/internal_4.png.asset.json";
-import internal7 from "@/assets/internal_7.png.asset.json";
-import internal9 from "@/assets/internal_9.png.asset.json";
-import internal16 from "@/assets/internal_16.png.asset.json";
-import internal17 from "@/assets/internal_17.png.asset.json";
-import internal19 from "@/assets/internal_19.png.asset.json";
-import internal25 from "@/assets/internal_25.png.asset.json";
-import internalFoto3 from "@/assets/internal_foto_3.png.asset.json";
-import internalPresentation33 from "@/assets/internal_presentation_33.png.asset.json";
-import internalCoverHero from "@/assets/internal_cover_hero.png.asset.json";
 
 const CHECKOUT_URL = "https://payfast.greenn.com.br/7tgkek2/offer/O3IeTh";
 
@@ -161,32 +143,32 @@ const bonuses = [
 
 const realSocialProof = [
   {
-    src: zap1.url,
+    src: "/assets/zap_1.webp",
     alt: "Eletricista recebendo o Livro Comandos Elétricos - zap 1",
   },
   {
-    src: zap3.url,
+    src: "/assets/zap_3.webp",
     alt: "Cliente satisfeito com o livro físico - zap 3",
   },
   {
-    src: zap5.url,
+    src: "/assets/zap_5.webp",
     alt: "Livro na bancada de trabalho - zap 5",
   },
   {
-    src: zap6.url,
+    src: "/assets/zap_6.webp",
     alt: "Detalhe das páginas do Livro - zap 6",
   },
 ];
 
 const internalPhotos = [
-  { src: internal4.url, alt: "Diagramas - Chaves de partidas de motores" },
-  { src: internal7.url, alt: "Chave Estrela-Triângulo Automática com Reversão" },
-  { src: internal9.url, alt: "Redes e Ramais - Análise de Defeitos" },
-  { src: internal16.url, alt: "Motores Elétricos - Motor Monofásico passo a passo" },
-  { src: internal17.url, alt: "Motores Elétricos - Motor Trifásico e Placa de Identificação" },
-  { src: internal19.url, alt: "Dispositivos de Comandos Elétricos - Relé Térmico" },
-  { src: internal25.url, alt: "Simbologias de Bobinas e Contatos" },
-  { src: internalFoto3.url, alt: "Inversores de Frequência - Parametrização" },
+  { src: "/assets/internal_4.png", alt: "Diagramas - Chaves de partidas de motores" },
+  { src: "/assets/internal_7.png", alt: "Chave Estrela-Triângulo Automática com Reversão" },
+  { src: "/assets/internal_9.png", alt: "Redes e Ramais - Análise de Defeitos" },
+  { src: "/assets/internal_16.png", alt: "Motores Elétricos - Motor Monofásico passo a passo" },
+  { src: "/assets/internal_17.png", alt: "Motores Elétricos - Motor Trifásico e Placa de Identificação" },
+  { src: "/assets/internal_19.png", alt: "Dispositivos de Comandos Elétricos - Relé Térmico" },
+  { src: "/assets/internal_25.png", alt: "Simbologias de Bobinas e Contatos" },
+  { src: "/assets/internal_foto_3.png", alt: "Inversores de Frequência - Parametrização" },
 ];
 
 const testimonials = [
@@ -376,7 +358,7 @@ function Index() {
 
           <div className="animate-rise flex justify-center">
             <img
-              src={bookCover.url}
+              src={"/assets/capa-comandos-eletricos.png"}
               alt="Capa do livro Comandos Elétricos - O Seu Guia Prático e Definitivo, 2ª edição, de Sandro Zander Soares Nogueira"
               width={780}
               height={1050}
@@ -415,7 +397,7 @@ function Index() {
       <section className="bg-secondary/60 py-20">
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 lg:grid-cols-2">
           <img
-            src={internalPresentation33.url}
+            src={"/assets/internal_presentation_33.png"}
             alt="Página interna do livro sobre proteção, fusíveis e dimensionamento"
             width={716}
             height={950}
@@ -616,7 +598,7 @@ function Index() {
             </ul>
           </div>
           <img
-            src={internalCoverHero.url}
+            src={"/assets/internal_cover_hero.png"}
             alt="Foto do Livro Comandos Elétricos"
             loading="lazy"
             className="w-full rounded-2xl border border-border bg-card shadow-[var(--shadow-lift)]"
@@ -755,7 +737,7 @@ function Index() {
         <div className="grid items-center gap-12 lg:grid-cols-[0.8fr_1fr]">
           <div className="relative">
             <img
-              src={authorPhoto.url}
+              src={"/assets/sandro-zander.jpg"}
               alt="Sandro Zander Soares Nogueira, autor do Manual Comandos Elétricos"
               width={470}
               height={569}
