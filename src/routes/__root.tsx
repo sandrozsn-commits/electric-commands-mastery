@@ -91,7 +91,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/cf0c25c87f17afc3fa58385091e3b49d/id-preview-d82e0718--d3f005ed-9b9c-4bf6-9271-0633d56ad886.lovable.app-1786378458214.png" },
     ],
     links: [
-      { rel: "icon", type: "image/svg+xml", href: "/favicon-uploaded.svg?v=20261009-2" },
+      { rel: "icon", type: "image/svg+xml", href: "/favicon-uploaded.svg?v=20261009-3" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
@@ -102,7 +102,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
 
   }),
